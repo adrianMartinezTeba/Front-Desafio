@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import usersService from './usersService';
 const initialState = {
-  user: user ? user : null,
-  token: token ? token : null,
+  user: '',
+  token: '',
 };
 export const productsSlice = createSlice({
   name: 'users',
@@ -10,14 +10,14 @@ export const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload;
       })
   }
 })
-export const register = createAsyncThunk("users/register", async (registerForm) => {
+export const login = createAsyncThunk("users/login", async (registerForm) => {
   try {
-    return await usersService.register(registerForm);
+    return await usersService.login(registerForm);
   } catch (error) {
     console.error(error);
   }
