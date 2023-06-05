@@ -1,13 +1,14 @@
 import axios from "axios";
 const API_URL = 'http://localhost:8080'
-const register = async (registerForm) => {
-  const res = await axios.post(API_URL+'/register',registerForm);
+const login = async (loginData) => {
+  const res = await axios.post(API_URL+'/login',loginData);
  
   return res.data;
 };
 
+
 const usersService = {
-    register
+    login
 };
 
 export default usersService;
