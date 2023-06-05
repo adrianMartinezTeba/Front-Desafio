@@ -2,6 +2,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/login/login";
 import './App.css'
+import Home from "./components/home/home";
+import InterestsForm from "./components/interestsForm/interestsForm";
 
 function App() {
   
@@ -11,6 +13,8 @@ function App() {
         <BrowserRouter>
         <Routes>
           <Route  path="/login" element={<Login/>}/>
+          <Route  path="/" element={<Home/>}/>
+          <Route  path="/int" element={<InterestsForm/>}/>
         </Routes>
         </BrowserRouter>
     </>
