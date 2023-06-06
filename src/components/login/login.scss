@@ -1,71 +1,113 @@
+@import "./src/colors.scss";
 
+body {
+  background-color: $blue;
 
+  &.logo-container-active {
+    // Estilo del fondo del body cuando está en logo-container
+    background-color: $white;
+  }
+}
 
+.logo-container{
+  color: $white;
+  padding-top: 200px;
+  
+}
 
-
-
-body{
-background-color:#004368;
+.bottom-quote{
+  color: $neutro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3vh;
 }
 
 
+
+
 .login-container {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
   
-  @media (max-width: 768px) {
-    .login-container {
-      padding-left: 0;
-    }
+}
+
+
+@media (max-width: 768px) {
+  .login-container {
+    padding-left: 0;
   }
-  .login-word {
-    position: relative;
-    top: -10px;
-    font-size: 52px;
-    font-weight: bold;
-    font-family:cursive;
-    margin-bottom: 5px;
-    color: #ffffffff;
-    filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.25));
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+}
+
+.logo {
+  padding-bottom: 18px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   .input-group {
     margin-bottom: 10px;
   }
-  
+
   input {
-    width: 300px;
+  
+    width: 320px;
     padding: 10px;
+    margin: 3px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 23px;
   }
+  .email-input{
+    background-image: url('../../assets/icons/user\ \(1\).png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+text-align: center;   
   
-  button {
-    width: 150px;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
+  .pass-input{
+    background-image: url('../../assets/icons/lock.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+text-align: center;   
   
-  button:hover {
-    background-color: #0056b3;
   }
 
-  .recuperar{
-    color: #ffffffff;
+  button {
+    width: 140px;
+    height: 40px;
+    padding: 10px 30px;
+    background-color: $white;
+    color: $blue;
+    border: none;
+    border-radius: 5px;
+    margin-left: 163px;
   }
-  
+
+  .recuperar {
+    color: #ffffffff;
+    font-size: 17px;
+    padding-bottom: 18px;
+    padding-right: 155px;
+  }
+
+  .login-button {
+    display: flex;
+    align-items: center;
+    background-image: url('../../assets/icons/arrow.jpg');
+    background-repeat: no-repeat;
+    background-position: 100px center;
+    border-radius: 10px;
+    height: 45px;
+    background-color: #ffffffff;
+    font-size: 20px;
+    padding-left: 20px;
+  }
+}
