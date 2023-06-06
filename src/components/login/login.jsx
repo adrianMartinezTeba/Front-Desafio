@@ -24,6 +24,9 @@ const Login = () => {
     
   };
   return (
+    <>
+    <div>
+    <h1>EDEM</h1>
     
     <form onSubmit={onSubmit}>
       <input
@@ -31,7 +34,7 @@ const Login = () => {
         name="email"
         value={email}
         onChange={onChange}
-        placeholder="email"
+        placeholder="correo electronico"
       />
       <input
         type="password"
@@ -42,6 +45,8 @@ const Login = () => {
       />
       <button type="submit">Login</button>
     </form>
+    </div>
+    </>
   );
 };
 export default Login;
