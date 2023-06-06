@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/users/usersSlice";
 
+import './login.scss'
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
@@ -25,10 +27,10 @@ const Login = () => {
   };
   return (
     <>
-    <div>
-    <h1>EDEM</h1>
-    
-    <form onSubmit={onSubmit}>
+    <div className="login-container">
+    <h1 className="login-word">EDEM</h1>
+    <form onSubmit={onSubmit} className="login-form">
+    <div className="input-group">
       <input
         type="email"
         name="email"
@@ -36,6 +38,8 @@ const Login = () => {
         onChange={onChange}
         placeholder="correo electronico"
       />
+       </div>
+       <div className="input-group">
       <input
         type="password"
         name="password"
@@ -43,7 +47,11 @@ const Login = () => {
         onChange={onChange}
         placeholder="password"
       />
-      <button type="submit">Login</button>
+       </div>
+       <div>
+        <p className="recuperar">recuperar contraseña</p>
+       </div>
+      <button type="submit">Acceder</button>
     </form>
     </div>
     </>
