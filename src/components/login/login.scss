@@ -1,5 +1,16 @@
 @import "./src/colors.scss";
 
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   background-color: $blue;
 
@@ -26,7 +37,6 @@ body {
 
 
 
-
 .login-container {
   display: flex;
   flex-direction: column;
@@ -34,7 +44,7 @@ body {
   justify-content: center;
   height: 100vh;
   text-align: center;
-  
+  animation: fadeIn 1.6s ease-in-out;
 }
 
 
