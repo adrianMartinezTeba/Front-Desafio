@@ -4,7 +4,7 @@ body {
   background-color: $blue;
 
   &.logo-container-active {
-    // Estilo del fondo del body cuando está en logo-container
+    
     background-color: $white;
   }
 }
@@ -21,6 +21,7 @@ body {
   align-items: center;
   justify-content: center;
   height: 3vh;
+  font-size: 20px;
 }
 
 
