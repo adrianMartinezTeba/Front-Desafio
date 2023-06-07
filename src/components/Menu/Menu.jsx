@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 import './Menu.scss'
 
@@ -20,9 +20,21 @@ const Menu = () => {
             </div>
        
         <div className='right-elements'>
+        <Link to="/buscar" className="nav-link" >
+        <div className="nav-image-container">
         <img src={search} alt="" />
+        </div>
+        </Link>
+        <Link to="/vector"  className="nav-link">
+        <div className="nav-image-container">
         <img src={vector} alt="" />
+        </div>
+        </Link>
+        <Link to="/calendar" className="nav-link" >
+        <div className="nav-image-container">
         <img src={calendar} alt="" />
+        </div>
+        </Link>
         </div>
         </nav>
     </div>

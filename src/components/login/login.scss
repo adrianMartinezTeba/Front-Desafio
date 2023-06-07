@@ -23,7 +23,7 @@ body {
 .logo-container{
   color: $white;
   padding-top: 200px;
-  
+  animation: fadeIn 1s ease-in-out;
 }
 
 .bottom-quote{

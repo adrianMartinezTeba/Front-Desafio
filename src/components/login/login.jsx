@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/users/usersSlice";
+
+
 import logo from "../../assets/icons/EDEM.png";
 import logo1 from "../../assets/icons/EDEMAzul.png";
+
 import "./login.scss";
 
 const Login = () => {
@@ -29,7 +32,7 @@ const Login = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
