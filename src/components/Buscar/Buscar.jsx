@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom';
 import './Buscar.scss'
 
 import flech from '../../assets/icons/arrow-right (2).jpg'
@@ -26,7 +26,9 @@ const Buscar = () => {
     
       <div className="navigation-bar">
         <div className="Busca">
+        <Link to="/" >
           <img src={flech} alt="" />
+          </Link>
           <h2>Buscar</h2>
         </div>
         <div className="content">
@@ -40,10 +42,10 @@ const Buscar = () => {
             onChange={handleChange}
             onKeyPress={handleKeyPress}
             className='buscar-in'
-          />
-          
+          />    
         </div>
       </div>
+
     </div>
   )
 }
