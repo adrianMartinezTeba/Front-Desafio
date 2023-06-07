@@ -7,6 +7,7 @@ import "./App.scss";
 import Home from "./components/home/home";
 import InterestsForm from "./components/interestsForm/interestsForm";
 import Menu from "./components/Menu/Menu"
+import Buscar from "./components/Buscar/Buscar";
 
 function App() {
   
@@ -20,6 +21,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/int" element={<InterestsForm />} />
+          <Route path="/buscar" element={<Buscar />} />
+        
         </Routes>
       </BrowserRouter>
     </>
