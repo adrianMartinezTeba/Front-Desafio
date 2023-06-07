@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../features/users/usersSlice";
+
+
 import logo from "../../assets/icons/EDEM.png";
 import logo1 from "../../assets/icons/EDEMAzul.png";
+
 import "./login.scss";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showLogo, setShowLogo] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
+
   });
   const { email, password } = formData;
 
   const dispatch = useDispatch();
+  
+
+ 
+
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -21,15 +31,30 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login(formData));
+    dispatch(login(formData))
+    .then(() => {
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      navigate('/');
+    })
+    .catch((error) => {
+      // Manejo de errores en caso de fallo de inicio de sesión
+    });
   };
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+     navigate('/')
+    }
+  }, [navigate]);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
-    }, 3000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -45,6 +70,8 @@ const Login = () => {
       document.body.classList.remove("logo-container-active");
     };
   }, [showLogo]);
+
+  
 
   return (
     <>
@@ -86,7 +113,7 @@ const Login = () => {
             <div>
               <p className="recuperar">Recuperar contraseña</p>
             </div>
-            <button type="submit" className="login-button">
+            <button type="submit" onSubmit={onSubmit} className="login-button">
               Acceder
             </button>
           </form>
