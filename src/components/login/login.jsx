@@ -33,7 +33,7 @@ const Login = () => {
       await dispatch(login(formData)); // Esperar a que se complete la solicitud de inicio de sesión
       const token = localStorage.getItem("token");
       if (token) {
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       console.error(error);
