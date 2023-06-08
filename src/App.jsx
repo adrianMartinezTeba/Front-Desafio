@@ -9,12 +9,11 @@ import Menu from "./components/Menu/Menu"
 import Buscar from "./components/Buscar/Buscar";
 
 function App() {
-  const isLoginPage = window.location.pathname === "/login";
 
   return (
     <>
       <BrowserRouter>
-        {!isLoginPage && <Menu />}
+       
         <Routes>
           <Route path="/" element={<Login />} /> {/* Ruta de inicio de sesión */}
           <Route path="/home" element={<Home />} />

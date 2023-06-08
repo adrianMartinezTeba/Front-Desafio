@@ -153,6 +153,7 @@ const Home = () => {
           </div>
         ))}
       </div>
+      <Home/>
     </div>
   )
 }
