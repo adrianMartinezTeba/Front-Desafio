@@ -3,27 +3,21 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../features/users/usersSlice";
 
-
 import logo from "../../assets/icons/EDEM.png";
 import logo1 from "../../assets/icons/EDEMAzul.png";
 
 import "./login.scss";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [showLogo, setShowLogo] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-
   });
   const { email, password } = formData;
 
+  const navigate = useNavigate(); // Llamada a useNavigate dentro del componente de función
   const dispatch = useDispatch();
-  
-
- 
-
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -31,26 +25,20 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(login(formData))
-    .then(() => {
-      localStorage.setItem("token", JSON.stringify(res.data.token));
-      navigate('/');
-    })
-    .catch((error) => {
-      // Manejo de errores en caso de fallo de inicio de sesión
-    });
-  };
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("token");
-    if (storedToken) {
-     navigate('/')
+  
+    try {
+      await dispatch(login(formData)); // Esperar a que se complete la solicitud de inicio de sesión
+      const token = localStorage.getItem("token");
+      if (token) {
+        navigate("/");
+      }
+    } catch (error) {
+      console.error(error);
     }
-  }, [navigate]);
-
-
+  };
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
@@ -70,8 +58,6 @@ const Login = () => {
       document.body.classList.remove("logo-container-active");
     };
   }, [showLogo]);
-
-  
 
   return (
     <>

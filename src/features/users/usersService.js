@@ -1,16 +1,15 @@
 import axios from "axios";
-
-const API_URL = 'http://localhost:8080/users'
+const API_URL = 'http://localhost:8080'
 
 
 
 const login = async (loginData) => {
-  
-  const res = await axios.post(API_URL+'/login',loginData);
+
+  const res = await axios.post(API_URL+'/users/login',loginData);
   if (res.data) {
     localStorage.setItem("user", JSON.stringify(res.data.user));
     localStorage.setItem("token", JSON.stringify(res.data.token));
-    
+   
   }
   return res.data;
 };
