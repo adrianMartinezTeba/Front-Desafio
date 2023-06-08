@@ -26,7 +26,7 @@ const Buscar = () => {
     
       <div className="navigation-bar">
         <div className="Busca">
-        <Link to="/" >
+        <Link to="/home" >
           <img src={flech} alt="" />
           </Link>
           <h2>Buscar</h2>

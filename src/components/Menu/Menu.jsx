@@ -16,7 +16,7 @@ const Menu = () => {
     <div>
         <nav className="navbar">
             <div className='left-elements'>
-            <Link to="/" className="nav-link" >
+            <Link to="/home" className="nav-link" >
             <img src={home} alt="" />
             </Link>
             </div>
