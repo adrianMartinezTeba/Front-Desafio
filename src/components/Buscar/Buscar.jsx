@@ -46,7 +46,7 @@ const Buscar = () => {
           />    
         </div>
       </div>
-      <Menu/>
+
     </div>
   )
 }
