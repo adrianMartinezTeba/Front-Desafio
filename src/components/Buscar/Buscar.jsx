@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Buscar.scss'
 
 import flech from '../../assets/icons/arrow-right (2).jpg'
+import Menu from '../Menu/Menu';
 
 const Buscar = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -45,7 +46,7 @@ const Buscar = () => {
           />    
         </div>
       </div>
-
+      <Menu/>
     </div>
   )
 }

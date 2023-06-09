@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import './home.scss'
+import Menu from '../Menu/Menu';
 
 const Home = () => {
   const noticias = [
@@ -124,7 +125,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <div className='recientes-ontainer'>
+      <div className='recientes-container'>
         <p>Recientes</p>
         <button>Ver todo</button>
         <hr />
@@ -153,7 +154,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <Home/>
+      <Menu/>
     </div>
   )
 }

@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../../features/users/usersSlice";
 
 import logo from "../../assets/icons/EDEM.png";
 import logo1 from "../../assets/icons/EDEMAzul.png";
 
 import "./login.scss";
+import { UsersContext } from "../../context/UserContext/UserState";
 
 const Login = () => {
+  const { login, token,user} = useContext(UsersContext);
   const [showLogo, setShowLogo] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
@@ -17,7 +17,6 @@ const Login = () => {
   const { email, password } = formData;
 
   const navigate = useNavigate(); // Llamada a useNavigate dentro del componente de función
-  const dispatch = useDispatch();
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -28,17 +27,14 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-  
-    try {
-      await dispatch(login(formData)); // Esperar a que se complete la solicitud de inicio de sesión
-      const token = localStorage.getItem("token");
-      if (token) {
-        navigate("/home");
-      }
-    } catch (error) {
-      console.error(error);
+  await login(formData); // Esperar a que se complete la solicitud de inicio de sesión
+
+};
+  useEffect(()=>{
+    if (token) {
+      navigate('/home')
     }
-  };
+  },[token])
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
@@ -99,7 +95,7 @@ const Login = () => {
             <div>
               <p className="recuperar">Recuperar contraseña</p>
             </div>
-            <button type="submit" onSubmit={onSubmit} className="login-button">
+            <button type="submit" className="login-button">
               Acceder
             </button>
           </form>
