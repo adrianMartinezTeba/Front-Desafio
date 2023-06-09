@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Buscar.scss'
+import './Buscar.scss';
+import '../InterestsPage/InterestsPage'
+import flech from '../../assets/icons/arrow-right.png';
 
 import flech from '../../assets/icons/arrow-right (2).jpg'
 import Menu from '../Menu/Menu';
@@ -22,19 +24,19 @@ const Buscar = () => {
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
+
   return (
-<div className="body-buscar">
-    
+    <div className="body-buscar">
       <div className="navigation-bar">
         <div className="Busca">
-        <Link to="/home" >
-          <img src={flech} alt="" />
+          <Link to="/home">
+            <img src={flech} alt="" />
           </Link>
           <h2>Buscar</h2>
         </div>
         <div className="content">
-        <p>Encuéntralo en un ecosistema único</p>
-      </div>
+          <p>Encuéntralo en un ecosistema único</p>
+        </div>
         <div className="buscar-bar">
           <input
             type="text"
@@ -42,13 +44,20 @@ const Buscar = () => {
             value={searchTerm}
             onChange={handleChange}
             onKeyPress={handleKeyPress}
-            className='buscar-in'
-          />    
+            className="buscar-in"
+          />
         </div>
       </div>
 
+      <div className="interests-container">
+        <ul>
+          { selectedInterests && selectedInterests.map((interest, index) => (
+            <li key={index}>{interest}</li>
+          ))}
+        </ul>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Buscar
+export default Buscar;

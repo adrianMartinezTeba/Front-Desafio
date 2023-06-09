@@ -20,7 +20,9 @@ function App() {
           )}
           <Route path="/home" element={<Home />} />
           <Route path="/int" element={<InterestsForm />} />
-          <Route path="/buscar" element={<Buscar />} />
+          <Route
+            path="/buscar"
+            element={<Buscar selectedInterests={selectedInterests} />}  />
         </Routes>
       </UsersProvider>
     </BrowserRouter>
