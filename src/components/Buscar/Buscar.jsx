@@ -47,7 +47,6 @@ const Buscar = ({ selectedInterests }) => {
       </div>
 
       <div className="interests-container">
-        <h3>Intereses seleccionados:</h3>
         <ul>
           { selectedInterests && selectedInterests.map((interest, index) => (
             <li key={index}>{interest}</li>

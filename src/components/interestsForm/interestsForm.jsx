@@ -23,6 +23,7 @@ const InterestsForm = () => {
 
     console.log('Intereses seleccionados:', selectedInterests);
     localStorage.setItem('selectedInterests', JSON.stringify(selectedInterests));
+    setSelectedInterests(selectedInterests);
     setSelectedInterests([]);
     setButtonStates({});
   };

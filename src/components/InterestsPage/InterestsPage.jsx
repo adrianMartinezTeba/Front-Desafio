@@ -6,11 +6,11 @@ const InterestsPage = () => {
     const [selectedInterests, setSelectedInterests] = useState([]);
   
     return (
-      <div>
-        <InterestsForm setSelectedInterests={setSelectedInterests} />
-        <Buscar selectedInterests={selectedInterests} />
-      </div>
-    );
-  };
+        <div>
+          <InterestsForm setSelectedInterests={setSelectedInterests} /> {/* Pasar la función setSelectedInterests */}
+          <Buscar selectedInterests={selectedInterests} />
+        </div>
+      );
+    };
   
   export default InterestsPage;
