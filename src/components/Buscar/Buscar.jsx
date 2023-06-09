@@ -4,8 +4,11 @@ import './Buscar.scss';
 import '../InterestsPage/InterestsPage'
 import flech from '../../assets/icons/arrow-right.png';
 
-const Buscar = ({ selectedInterests }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+import flech from '../../assets/icons/arrow-right (2).jpg'
+import Menu from '../Menu/Menu';
+
+const Buscar = () => {
+    const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = () => {
     // Lógica para realizar la búsqueda con el término ingresado
