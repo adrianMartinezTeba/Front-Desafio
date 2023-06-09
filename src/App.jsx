@@ -5,6 +5,7 @@ import Home from "./components/home/home";
 import InterestsForm from "./components/interestsForm/interestsForm";
 import Buscar from "./components/Buscar/Buscar";
 import { UserProvider } from "./context/UserContext/UserState";
+import OnBoarding from "./components/onBoarding/onBoarding";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/int" element={<InterestsForm />} />
           <Route path="/buscar" element={<Buscar />} />
+          <Route path="/onBoarding" element={<OnBoarding/>} />
         </Routes>
       </UserProvider>
     </BrowserRouter>
