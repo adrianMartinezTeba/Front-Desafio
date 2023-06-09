@@ -1,0 +1,48 @@
+.appContainer {
+    position: relative;
+    width: 375px;
+    height: 812px;
+    background: linear-gradient(180deg, #004368 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.onBoard1 {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 187.5px;
+    height: 406px;
+    left: 94px;
+    top: 95px;
+    
+    border-radius: 20px;
+}
+
+.onBoard1T {
+    position: absolute;
+width: 343px;
+height: 135px;
+left: 16px;
+top: 498px;
+
+font-family: 'Atkinson Hyperlegible';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 45px;
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #FFFFFF;
+}
+
+.botton {
+    position: absolute;
+width: 187px;
+height: 40px;
+left: 94px;
+top: 725px;
+
+background: #F1F1F1;
+border-radius: 70px;
+}
