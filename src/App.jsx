@@ -9,7 +9,7 @@ import Menu from "./components/Menu/Menu"
 import Buscar from "./components/Buscar/Buscar";
 
 function App() {
-  const isLoginPage = window.location.pathname === "/login";
+  const isLoginPage = window.location.pathname === "/";
 
   return (
     <>

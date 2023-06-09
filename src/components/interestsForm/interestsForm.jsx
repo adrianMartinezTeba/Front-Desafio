@@ -1,40 +1,50 @@
 import React, { useState } from 'react';
+import './interestsForm.scss';
+
 
 const InterestsForm = () => {
-  const interests = ['caca','pis','hola','iewbska'];
+  const interests = ['Tecnología', 'Ciencia', 'Salud', 'Arte', 'Jurisprudencia', 'Sociologia'];
   const [selectedInterests, setSelectedInterests] = useState([]);
-//onsubmit un put de user para que se actualice su array de intereses 
-  const handleInterestChange = (event) => {
-    const interest = event.target.value;
-    if (event.target.checked) {
-      setSelectedInterests((prevSelectedInterests) => [...prevSelectedInterests, interest]);
-    } else {
+  const [buttonStates, setButtonStates] = useState({});
+
+  const handleInterestClick = (interest) => {
+    if (selectedInterests.includes(interest)) {
       setSelectedInterests((prevSelectedInterests) =>
         prevSelectedInterests.filter((item) => item !== interest)
       );
+    } else {
+      setSelectedInterests((prevSelectedInterests) => [...prevSelectedInterests, interest]);
     }
+    setButtonStates((prevState) => ({ ...prevState, [interest]: !prevState[interest] }));
   };
-  const onSubmit = () =>{
-    
-  }
+
+  const onInterestsSubmit = (event) => {
+    event.preventDefault();
+
+    console.log('Intereses seleccionados:', selectedInterests);
+
+    setSelectedInterests([]);
+    setButtonStates({});
+  };
+
   return (
-    <div>
-      <h1>Interests Form</h1>
-      <form>
+    <div className="container">
+      <h1 className="interest-h1">Intereses</h1>
+      <h3 className="interest-h3">Intereses profesionales</h3>
+      <form onSubmit={onInterestsSubmit}>
         {interests.map((interest) => (
-          <div key={interest}>
-            <label>
-              <input
-                type="checkbox"
-                value={interest}
-                checked={selectedInterests.includes(interest)}
-                onChange={handleInterestChange}
-              />
-              {interest}
-            </label>
-          </div>
+          <button
+            key={interest}
+            type="button"
+            className={`interest-button ${buttonStates[interest] ? 'selected' : ''}`}
+            onClick={() => handleInterestClick(interest)}
+          >
+            {interest}
+          </button>
         ))}
+        <button type="submit" className="Env-button">Enviar</button>
       </form>
+      
     </div>
   );
 };
