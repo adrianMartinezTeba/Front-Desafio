@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Buscar.scss';
-
+import '../InterestsPage/InterestsPage'
 import flech from '../../assets/icons/arrow-right.png';
 
-const Buscar = () => {
+const Buscar = ({ selectedInterests }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedInterests, setSelectedInterests] = useState([]);
 
   const handleSearch = () => {
     // Lógica para realizar la búsqueda con el término ingresado
@@ -21,10 +20,6 @@ const Buscar = () => {
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
-  };
-
-  const handleInterestClick = (interest) => {
-    setSelectedInterests((prevSelectedInterests) => [...prevSelectedInterests, interest]);
   };
 
   return (
@@ -50,7 +45,15 @@ const Buscar = () => {
           />
         </div>
       </div>
-      
+
+      <div className="interests-container">
+        <h3>Intereses seleccionados:</h3>
+        <ul>
+          { selectedInterests && selectedInterests.map((interest, index) => (
+            <li key={index}>{interest}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

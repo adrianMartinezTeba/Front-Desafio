@@ -10,7 +10,7 @@ import Buscar from "./components/Buscar/Buscar";
 
 function App() {
   const isLoginPage = window.location.pathname === "/";
-
+  const selectedInterests = JSON.parse(localStorage.getItem("selectedInterests")) || [];
   return (
     <>
       <BrowserRouter>
@@ -19,7 +19,9 @@ function App() {
           <Route path="/" element={<Login />} /> {/* Ruta de inicio de sesión */}
           <Route path="/home" element={<Home />} />
           <Route path="/int" element={<InterestsForm />} />
-          <Route path="/buscar" element={<Buscar />} />
+          <Route
+            path="/buscar"
+            element={<Buscar selectedInterests={selectedInterests} />}  />
         </Routes>
       </BrowserRouter>
     </>
