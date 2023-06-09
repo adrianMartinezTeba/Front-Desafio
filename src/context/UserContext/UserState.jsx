@@ -26,6 +26,32 @@ const initialState = {
           localStorage.setItem("token", JSON.stringify(res.data.token));
         }
       };
+      const getUserLogged = async() =>{
+        const token = JSON.parse(localStorage.getItem("token"))
+        const res = await axios.get(API_URL + '/users/userLogged',{
+            headers:{
+                Authorization:token
+            }
+        })
+        console.log(res);
+        dispatch({
+            type:"GET_USER",
+            payload:res.data
+        })
+      };
+      const update = async (userForm)=>{
+        const token = JSON.parse(localStorage.getItem("token"))
+        const res = await axios.put(API_URL + '/users/update',userForm,{
+            headers:{
+                Authorization:token
+            }
+        })
+        console.log(res);
+        dispatch({
+            type:"UPDATE_USER",
+            payload:res.data
+        })
+      }
       
       return (
         <UserContext.Provider
@@ -34,7 +60,8 @@ const initialState = {
             user: state.user,
           
             login,
-           
+           getUserLogged,
+           update
           }}
         >
           {children}
