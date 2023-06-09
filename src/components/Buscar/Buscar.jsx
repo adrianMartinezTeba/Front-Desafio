@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Buscar.scss';
-import '../InterestsPage/InterestsPage'
 import flech from '../../assets/icons/arrow-right.png';
 
-import flech from '../../assets/icons/arrow-right (2).jpg'
 import Menu from '../Menu/Menu';
 
 const Buscar = () => {
@@ -51,11 +49,10 @@ const Buscar = () => {
 
       <div className="interests-container">
         <ul>
-          { selectedInterests && selectedInterests.map((interest, index) => (
-            <li key={index}>{interest}</li>
-          ))}
+       
         </ul>
       </div>
+      <Menu/>
     </div>
   );
 };

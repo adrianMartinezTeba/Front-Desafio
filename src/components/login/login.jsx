@@ -32,7 +32,7 @@ const Login = () => {
 };
   useEffect(()=>{
     if (token) {
-      navigate('/home')
+      navigate('/')
     }
   },[token])
   useEffect(() => {
