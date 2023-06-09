@@ -7,13 +7,17 @@ import Buscar from "./components/Buscar/Buscar";
 import { UsersProvider } from "./context/UserContext/UserState";
 
 function App() {
-  // Limpiar el almacenamiento local al inicio
+  const token = localStorage.getItem("token");
 
   return (
     <BrowserRouter>
       <UsersProvider>
         <Routes>
-          <Route path="/" element={<Login />} />
+          {token ? (
+            <Route path="/" element={<Home />} />
+          ) : (
+            <Route path="/" element={<Login />} />
+          )}
           <Route path="/home" element={<Home />} />
           <Route path="/int" element={<InterestsForm />} />
           <Route path="/buscar" element={<Buscar />} />
