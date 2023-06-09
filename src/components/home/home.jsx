@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
 import './home.scss'
 import Menu from '../Menu/Menu';
-
+import { useNavigate } from "react-router-dom";
 const Home = () => {
+
   const noticias = [
     {
       id: 1,
@@ -105,7 +106,14 @@ const Home = () => {
       tags: ['presentación', 'arte']
     }
   ];
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
 
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
   return (
     <div className='home-container'>
       <div className='noticias-container'>

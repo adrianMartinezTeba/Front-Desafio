@@ -3,25 +3,21 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/login/login";
 import Home from "./components/home/home";
 import InterestsForm from "./components/interestsForm/interestsForm";
-import { UsersProvider } from "./context/UserContext/UserState";
 import Buscar from "./components/Buscar/Buscar";
+import { UserProvider } from "./context/UserContext/UserState";
 
 function App() {
-  const token = localStorage.getItem("token");
-
   return (
     <BrowserRouter>
-      <UsersProvider>
+      <UserProvider>
         <Routes>
-          {token ? (
-            <Route path="/" element={<Home />} />
-          ) : (
-            <Route path="/" element={<Login />} />
-          )}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/int" element={<InterestsForm />} />
           <Route path="/buscar" element={<Buscar />} />
         </Routes>
-      </UsersProvider>
+      </UserProvider>
     </BrowserRouter>
   );
 }

@@ -5,36 +5,39 @@ import logo from "../../assets/icons/EDEM.png";
 import logo1 from "../../assets/icons/EDEMAzul.png";
 
 import "./login.scss";
-import { UsersContext } from "../../context/UserContext/UserState";
+import { UserContext } from "../../context/UserContext/UserState";
+
+
 
 const Login = () => {
-  const { login, token,user} = useContext(UsersContext);
+  const {login,token } = useContext(UserContext);
   const [showLogo, setShowLogo] = useState(true);
-  const [formData, setFormData] = useState({
+  const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
   });
-  const { email, password } = formData;
 
-  const navigate = useNavigate(); // Llamada a useNavigate dentro del componente de función
+  const navigate = useNavigate();
 
   const onChange = (e) => {
-    setFormData((prevState) => ({
+    setLoginForm((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const onSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-  await login(formData); // Esperar a que se complete la solicitud de inicio de sesión
+    await login(loginForm);
+  };
 
-};
-  useEffect(()=>{
+  useEffect(() => {
+    const token = localStorage.getItem("token");
     if (token) {
-      navigate('/')
+      navigate("/");
     }
-  },[token])
+  },[token]);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
@@ -71,15 +74,15 @@ const Login = () => {
           }`}
         >
           <img src={logo} alt="Logo de EDEM" className="logo" />
-          <form onSubmit={onSubmit} className="login-form">
+          <form  className="login-form" onSubmit={handleSubmit}>
             <div className="input-group">
               <input
                 className="email-input"
                 type="email"
                 name="email"
-                value={email}
+                value={loginForm.email}
                 onChange={onChange}
-                placeholder="Correo electronico"
+                placeholder="Correo electrónico"
               />
             </div>
             <div className="input-group">
@@ -87,7 +90,7 @@ const Login = () => {
                 className="pass-input"
                 type="password"
                 name="password"
-                value={password}
+                value={loginForm.password}
                 onChange={onChange}
                 placeholder="Contraseña"
               />
@@ -95,7 +98,7 @@ const Login = () => {
             <div>
               <p className="recuperar">Recuperar contraseña</p>
             </div>
-            <button type="submit" className="login-button">
+            <button type="submit" onClick={handleSubmit} className="login-button">
               Acceder
             </button>
           </form>
