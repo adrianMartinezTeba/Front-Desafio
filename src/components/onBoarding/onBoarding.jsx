@@ -1,57 +1,122 @@
+
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import './onBoarding.scss';
+
+// import onBoard1 from "../../assets/image/onBoard1.png";
+// import onBoard2 from "../../assets/image/onBoard2.png";
+// import onBoard3 from "../../assets/image/onBoard3.png";
+// import pointMark1 from "../../assets/icons/puntos-izquierda.png";
+// import pointMark2 from "../../assets/icons/puntos-centro.png";
+// import pointMark3 from "../../assets/icons/puntos-derecha.png";
+
+// const OnBoarding = () => {
+//     const [step, setStep] = useState(0);
+//     const navigate = useNavigate();
+
+//     const steps = [
+//         <div className="step">
+//             <img src={onBoard1} alt="onBoard1" className="onBoard1" />
+//             <div className="onBoard1T">
+//                 <p>Entérate de todo lo que está pasando en Marina de empresas</p>
+//                 <div>
+//                 <img src={pointMark1} alt="puntos-izquierda" className="puntos-izquierda" />
+//                 </div>
+//             </div>
+//         </div>,
+//         <div className="step">
+//             <img src={onBoard2} alt="onBoard2" className="onBoard2"/>
+//             <div className="onBoard2T">
+//                 <p>No te pierdas ningún acontecimiento</p>
+//             </div>
+//         </div>,
+//         <div className="step">
+//             <img src={onBoard3} alt="onBoard3" className="onBoard3" />
+//             <div className="onBoard3T">
+//                 <p>Forma parte de un ecosistema único</p>
+//             </div>
+//         </div>
+//     ];
+
+//     const nextStep = () => {
+//         if (step < steps.length - 1) {
+//             setStep(step + 1);
+//         } else {
+//             navigate("/otra-pagina");
+//         }
+//     }
+
+//     return (
+//         <div className="appContainer">
+//             {steps[step]}
+//             <div className="buttonContainer">
+//                 <button className="botton" onClick={nextStep}><div>Siguiente</div></button>
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default OnBoarding;
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './onBoarding.scss';
 
 import onBoard1 from "../../assets/image/onBoard1.png";
-import frame1 from "../../assets/image/Frame1.png";
-import frame2 from "../../assets/image/Frame2.png";
+import onBoard2 from "../../assets/image/onBoard2.png";
 import onBoard3 from "../../assets/image/onBoard3.png";
+import pointMark1 from "../../assets/icons/puntos-izquierda.png";
+import pointMark2 from "../../assets/icons/puntos-centro.png";
+import pointMark3 from "../../assets/icons/puntos-derecha.png";
 
 const OnBoarding = () => {
-    const [step, setStep] = useState(0);  // Inicializamos el paso en 0
+    const [step, setStep] = useState(0);
     const navigate = useNavigate();
 
     const steps = [
-        <div>
-            <div>
-                <img src={onBoard1} alt="onBoard1" className="onBoard1" />
-            </div>
+        <div className="step">
+            <img src={onBoard1} alt="onBoard1" className="onBoard1" />
             <div className="onBoard1T">
-                <p>Entérate de todo lo que está pasando en Marina de empresas.</p>
+                <p>Entérate de todo lo que está pasando en Marina de empresas</p>
+                <div>
+                    <img src={pointMark1} alt="puntos-izquierda" className="puntos-izquierda" />
+                </div>
             </div>
         </div>,
-        <div>
-            <div>
-                <img src={frame1} alt="Frame1" />
-            </div>
-            <div>
-                <img src={frame2} alt="Frame2" />
-            </div>
-            <div>
-                <p>No te pierdas ningún acontecimiento.</p>
+        <div className="step">
+            <img src={onBoard2} alt="onBoard2" className="onBoard2"/>
+            <div className="onBoard2T">
+                <p>No te pierdas ningún acontecimiento</p>
+                <div>
+                    <img src={pointMark2} alt="puntos-centro" className="puntos-centro" />
+                </div>
             </div>
         </div>,
-        <div>
-            <div>
-                <img src={onBoard3} alt="onBoard3" />
-            </div>
-            <div>
-                <p>Forma parte de un ecosistema único.</p>
+        <div className="step">
+            <img src={onBoard3} alt="onBoard3" className="onBoard3" />
+            <div className="onBoard3T">
+                <p>Forma parte de un ecosistema único</p>
+                <div>
+                    <img src={pointMark3} alt="puntos-derecha" className="puntos-derecha" />
+                </div>
             </div>
         </div>
     ];
 
     const nextStep = () => {
-        if (step < steps.length - 1) {  // Si no estamos en la última etapa
-            setStep(step + 1);  // Pasamos a la siguiente etapa
+        if (step < steps.length - 1) {
+            setStep(step + 1);
         } else {
-            navigate("/otra-pagina");  // Si ya estamos en la última etapa, redirigimos a otra página
+            navigate("/otra-pagina");
         }
     }
 
     return (
-        <div>
-            {steps[step]}  {/* Mostramos la etapa correspondiente */}
-            <button className="botton" onClick={nextStep}><div>Siguiente</div></button> {/* Botón que activa la función nextStep */}
+        <div className="appContainer">
+            {steps[step]}
+            <div className="buttonContainer">
+                <button className="botton" onClick={nextStep}><div>Siguiente</div></button>
+            </div>
         </div>
     );
 }
