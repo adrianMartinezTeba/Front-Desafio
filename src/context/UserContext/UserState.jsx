@@ -2,18 +2,15 @@ import { createContext, useReducer } from "react";
 import axios from "axios";
 import users from './UserReducer'
 
-const initialState = {
-    user: [],
-    // order:[]
-  };
+const initialState ={};
   
   const API_URL = "http://localhost:8080";
   export const UserContext = createContext(initialState);
   export const UserProvider = ({children}) =>{
     const [state,dispatch] = useReducer(users,initialState)
   
-    const login = async (user) => {
-        const res = await axios.post(API_URL + "/users/login", user);
+    const login = async (loginForm) => {
+        const res = await axios.post(API_URL + "/users/login", loginForm);
     
         //guardamos el token en el estado
         dispatch({
@@ -24,6 +21,7 @@ const initialState = {
         //guardamos el token en el local storage
         if (res.data) {
           localStorage.setItem("token", JSON.stringify(res.data.token));
+          console.log(res.data.user);
         }
       };
       const getUserLogged = async() =>{
@@ -33,7 +31,6 @@ const initialState = {
                 Authorization:token
             }
         })
-        console.log(res);
         dispatch({
             type:"GET_USER",
             payload:res.data
@@ -46,7 +43,7 @@ const initialState = {
                 Authorization:token
             }
         })
-        console.log(res);
+       
         dispatch({
             type:"UPDATE_USER",
             payload:res.data
@@ -56,9 +53,8 @@ const initialState = {
       return (
         <UserContext.Provider
           value={{
-            token: state.token,
             user: state.user,
-          
+            token:state.token,
             login,
            getUserLogged,
            update

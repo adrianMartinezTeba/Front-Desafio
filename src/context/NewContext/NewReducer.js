@@ -1,4 +1,4 @@
-const users = (state, action) => {
+const news = (state, action) => {
     switch (action.type) {
       case "GET_NEWS":
         return {
@@ -10,4 +10,4 @@ const users = (state, action) => {
         return state;
     }
   };
-  export default users;
+  export default news;
