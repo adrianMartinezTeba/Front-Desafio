@@ -1,7 +1,7 @@
-
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import './onBoarding.scss';
+import { UserContext } from "../../context/UserContext/UserState";
 
 import onBoard1 from "../../assets/image/onBoard1.png";
 import onBoard2 from "../../assets/image/onBoard2.png";
@@ -13,6 +13,7 @@ import pointMark3 from "../../assets/icons/puntos-derecha.png";
 const OnBoarding = () => {
     const [step, setStep] = useState(0);
     const navigate = useNavigate();
+    const { updateFirstOnBoard } = useContext(UserContext);
 
     const steps = [
         <div className="step">
@@ -48,7 +49,8 @@ const OnBoarding = () => {
         if (step < steps.length - 1) {
             setStep(step + 1);
         } else {
-            navigate("/");
+            updateFirstOnBoard(false); // Llamada a la función updateFirstOnBoard para actualizar el atributo firstOnBoard en el backend
+            navigate("/int");
         }
     }
 
