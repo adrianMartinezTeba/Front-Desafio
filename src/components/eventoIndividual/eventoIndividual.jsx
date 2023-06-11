@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { EventContext } from "../../context/EventContext/EventState";
+import Menu from "../Menu/Menu"; // Importar el componente Menu
 
 const EventoIndividual = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const EventoIndividual = () => {
 
   return (
     <div>
+      <Menu /> {/* Renderizar el componente Menu */}
       <h1>EventoIndividual</h1>
       {event ? (
         <>
