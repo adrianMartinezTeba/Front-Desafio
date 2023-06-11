@@ -7,10 +7,10 @@ import { EventsContext } from '../../context/EventContext/EventState';
 import { UserContext } from '../../context/UserContext/UserState';
 
 const Home = () => {
-  const {getUserLogged,user} = useContext(UserContext)
   const [noticias, setNoticias] = useState([]);
   const [allEvents, setAllEvents] = useState([]);
   const [userIMG, setUserIMG] = useState('');
+  const {getUserLogged,user} = useContext(UserContext)
   const { news, getAllNews } = useContext(NewsContext);
   const {getAllEvents,events} = useContext(EventsContext)
 
@@ -18,7 +18,7 @@ const Home = () => {
     getAllNews();
     getAllEvents()
    getUserLogged()
-  }, []);
+  },[]);
 
   useEffect(() => {
     setNoticias(news);

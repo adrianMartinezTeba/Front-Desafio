@@ -4,8 +4,8 @@ import Login from "./components/login/login";
 import Home from "./components/home/home";
 import InterestsForm from "./components/interestsForm/interestsForm";
 import Buscar from "./components/Buscar/Buscar";
-import { UserProvider } from "./context/UserContext/UserState";
 import OnBoarding from "./components/onBoarding/onBoarding";
+import { UserProvider } from "./context/UserContext/UserState";
 import { NewsProvider } from "./context/NewContext/NewState";
 import { EventsProvider } from "./context/EventContext/EventState";
 

@@ -36,6 +36,7 @@ export const UserProvider = ({ children }) => {
       type: "GET_USER",
       payload: res.data
     });
+    console.log(res);
   };
 
   const update = async (userForm) => {
@@ -76,6 +77,7 @@ export const UserProvider = ({ children }) => {
       value={{
         user: state.user,
         token: state.token,
+        firstOnBoard:state.firstOnBoard,
         login,
         getUserLogged,
         update,
