@@ -3,7 +3,7 @@ import axios from "axios";
 import news from './NewReducer'
 
 const initialState ={
-
+news:[]
 };
   
   const API_URL = "http://localhost:8080";
