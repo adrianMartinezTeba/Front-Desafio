@@ -7,20 +7,25 @@ import Buscar from "./components/Buscar/Buscar";
 import { UserProvider } from "./context/UserContext/UserState";
 import OnBoarding from "./components/onBoarding/onBoarding";
 import { NewsProvider } from "./context/NewContext/NewState";
+import { EventProvider } from "./context/EventContext/EventState";
+import EventoIndividual from "./components/eventoIndividual/eventoIndividual";
 
 function App() {
   return (
     <BrowserRouter>
       <UserProvider>
         <NewsProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/int" element={<InterestsForm />} />
-          <Route path="/buscar" element={<Buscar />} />
-          <Route path="/onBoarding" element={<OnBoarding/>} />
-        </Routes>
+          <EventProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/int" element={<InterestsForm />} />
+              <Route path="/buscar" element={<Buscar />} />
+              <Route path="/onBoarding" element={<OnBoarding />} />
+              <Route path="/evento/:id" element={<EventoIndividual />} />
+            </Routes>
+          </EventProvider>
         </NewsProvider>
       </UserProvider>
     </BrowserRouter>
