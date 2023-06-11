@@ -2,23 +2,34 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './home.scss';
 import Menu from '../Menu/Menu';
-import { useNavigate } from 'react-router-dom';
 import { NewsContext } from '../../context/NewContext/NewState';
+import { EventsContext } from '../../context/EventContext/EventState';
+import { UserContext } from '../../context/UserContext/UserState';
 
 const Home = () => {
+  const {getUserLogged,user} = useContext(UserContext)
   const [noticias, setNoticias] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
+  const [userIMG, setUserIMG] = useState('');
   const { news, getAllNews } = useContext(NewsContext);
-  const navigate = useNavigate();
+  const {getAllEvents,events} = useContext(EventsContext)
 
   useEffect(() => {
     getAllNews();
+    getAllEvents()
+   getUserLogged()
   }, []);
 
   useEffect(() => {
-    console.log(news);
     setNoticias(news);
-  }, [news]);
-
+    setAllEvents(events)
+    setUserIMG(user)
+    console.log(news);
+    console.log(events);
+    console.log(user);
+    
+  }, [news,events,user]);
+  const imgPerfil = <img src={userIMG.imageURL} />
   const divNoticias = noticias.map((noticia) => (
     <div key={noticia.id}>
       <div>
@@ -33,6 +44,9 @@ const Home = () => {
       <p>{noticia.body}</p>
     </div>
   ));
+  // const divEvents = allEvents.map((eventElement)=>(
+    
+  // ))
 
 
   return (
@@ -40,7 +54,7 @@ const Home = () => {
       <div className="noticias-container">
         <h3>Noticias</h3>
         <Link to="/profile">
-          <img src="ruta_de_la_imagen" alt="Profile" />
+          {imgPerfil}
         </Link>
         {noticias.length > 0 ? (
           divNoticias
@@ -52,6 +66,11 @@ const Home = () => {
         <p>Recientes</p>
         <button>Ver todo</button>
         <hr />
+        {noticias.length > 0 ? (
+          divNoticias
+        ) : (
+          <p>No hay noticias disponibles.</p>
+        )}
       </div>
       <Menu />
     </div>

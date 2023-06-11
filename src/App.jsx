@@ -7,12 +7,14 @@ import Buscar from "./components/Buscar/Buscar";
 import { UserProvider } from "./context/UserContext/UserState";
 import OnBoarding from "./components/onBoarding/onBoarding";
 import { NewsProvider } from "./context/NewContext/NewState";
+import { EventsProvider } from "./context/EventContext/EventState";
 
 function App() {
   return (
     <BrowserRouter>
       <UserProvider>
         <NewsProvider>
+         <EventsProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -21,6 +23,7 @@ function App() {
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/onBoarding" element={<OnBoarding/>} />
         </Routes>
+        </EventsProvider> 
         </NewsProvider>
       </UserProvider>
     </BrowserRouter>
