@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import './home.scss'
 import Menu from '../Menu/Menu';
 import { useNavigate } from "react-router-dom";
+import { NewsContext } from '../../context/NewContext/NewState';
 const Home = () => {
 
+  const {news,getAllNews}= useContext(NewsContext)
+  useEffect(()=>{
+getAllNews()
+
+  },[])
   const noticias = [
     {
       id: 1,
@@ -107,13 +113,7 @@ const Home = () => {
     }
   ];
   const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem('token');
 
-    if (!token) {
-      navigate('/login');
-    }
-  }, [navigate]);
   return (
     <div className='home-container'>
       <div className='noticias-container'>

@@ -3,13 +3,14 @@ const users = (state, action) => {
         case "LOGIN":
             return {
                 ...state,
+                user:action.payload.user,
                 token: action.payload.token,
                 message: action.payload.message,
             };
         case "GET_USER":
             return {
                 ...state,
-                user: action.payload.token,
+                user: action.payload,
                 message: action.payload.message,
             };
         case "UPDATE_USER":

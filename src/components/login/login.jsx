@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import logo from "../../assets/icons/EDEM.png";
 import logo1 from "../../assets/icons/EDEMAzul.png";
-
 import "./login.scss";
 import { UserContext } from "../../context/UserContext/UserState";
 
-
-
 const Login = () => {
-  const {login,token} = useContext(UserContext);
+  const { login, token, user } = useContext(UserContext);
   const [showLogo, setShowLogo] = useState(true);
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -29,15 +25,30 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(loginForm);
+
+
   };
-
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/");
-    }
-  },[token]);
+    const timer = setTimeout(() => {
+      if (user.firstOnBoard===true) {
+        navigate("/onBoarding");
+      } else {
+        navigate("/");
+      }
+      // Aquí puedes realizar la lógica adicional que necesites
+    }, 500); // Ajusta el tiempo de espera según tus necesidades
 
+    return () => clearTimeout(timer);
+  }, [token, user]);
+
+  //la funcion de logout deberia de limpiar el estado general del token para que esto no te lleve a home 
+  // useEffect(() => {
+  //   const tokenStorage = JSON.parse(localStorage.getItem('token'))
+  //   setTokenStorage(tokenStorage);
+  //   if (tokenStorage === 'token') {
+  //     navigate("/");
+  //   }
+  // }, []);
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
@@ -69,12 +80,11 @@ const Login = () => {
 
       {!showLogo && (
         <div
-          className={`login-container ${
-            showLogo ? "logo-visible" : "form-visible"
-          }`}
+          className={`login-container ${showLogo ? "logo-visible" : "form-visible"
+            }`}
         >
           <img src={logo} alt="Logo de EDEM" className="logo" />
-          <form  className="login-form" onSubmit={handleSubmit}>
+          <form className="login-form" onSubmit={handleSubmit}>
             <div className="input-group">
               <input
                 className="email-input"
@@ -98,7 +108,7 @@ const Login = () => {
             <div>
               <p className="recuperar">Recuperar contraseña</p>
             </div>
-            <button type="submit" onClick={handleSubmit} className="login-button">
+            <button type="submit" className="login-button">
               Acceder
             </button>
           </form>
