@@ -13,7 +13,7 @@ const EventoIndividual = () => {
 
   return (
     <div>
-      <Menu /> {/* Renderizar el componente Menu */}
+      <Menu />
       <h1>EventoIndividual</h1>
       {event ? (
         <>
