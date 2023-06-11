@@ -47,11 +47,6 @@ const Buscar = () => {
         </div>
       </div>
 
-      <div className="interests-container">
-        <ul>
-       
-        </ul>
-      </div>
       <Menu/>
     </div>
   );
