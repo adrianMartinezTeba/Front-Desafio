@@ -11,6 +11,7 @@ import { EventProvider } from "./context/EventContext/EventState";
 import EventoIndividual from "./components/eventoIndividual/eventoIndividual";
 import CanalDifusion from "./components/canalDifusion/canalDifusion";
 import { CanalDifusionProvider } from "./context/CanalDifusionContext/CanalDifusionState";
+import NewIndividual from "./components/NewIndividual/NewIndividual";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/onBoarding" element={<OnBoarding />} />
                 <Route path="/event/:id" element={<EventoIndividual />} />
                 <Route path="/canal/:id" element={<CanalDifusion />} />
+                <Route path="/news/:id" element={<NewIndividual />} />
               </Routes>
             </CanalDifusionProvider>
           </EventProvider>

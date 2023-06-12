@@ -8,7 +8,7 @@ const news = (state, action) => {
         case "GET_NEWBYID":
           return {
             ...state,//para que no se borre el estado anterior
-            new: action.payload,//el payload es la informacion que nos viene de la peticion
+            news: action.payload,//el payload es la informacion que nos viene de la peticion
           };
   
       default:
