@@ -14,7 +14,6 @@ const NewIndividual = () => {
 
   useEffect(() => {
     console.log(news);
-    console.log(news?.tags);
   }, [news]);
 
   return (

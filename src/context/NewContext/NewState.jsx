@@ -3,7 +3,7 @@ import axios from "axios";
 import news from './NewReducer'
 
 const initialState ={
-news:[],
+news:'',
 };
   
   const API_URL = "http://localhost:8080";
@@ -22,7 +22,7 @@ news:[],
       const getNewById = async (id) => {
         const res = await axios.get(API_URL + "/news/byId/"+id);
         dispatch({
-          type: "GET_NEWS",
+          type: "GET_NEWBYID",
           payload: res.data,
         });
         console.log(res);
