@@ -13,6 +13,7 @@ import CanalDifusion from "./components/canalDifusion/canalDifusion";
 import { CanalDifusionProvider } from "./context/CanalDifusionContext/CanalDifusionState";
 import NewIndividual from "./components/NewIndividual/NewIndividual";
 import { TagProvider } from "./context/TagsContext/TagContext";
+import Calendar from "./components/calendar/calendar";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/event/:id" element={<EventoIndividual />} />
                 <Route path="/canal/:id" element={<CanalDifusion />} />
                 <Route path="/news/:id" element={<NewIndividual />} />
+                <Route path="/calendar" element={<Calendar />} />
               </Routes>
             </CanalDifusionProvider>
           </EventProvider>

@@ -1,0 +1,39 @@
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .calendar-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: 1px solid #050e1d;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .calendar-day.disabled {
+    color: #000000;
+    cursor: not-allowed;
+  }
+  
+  .calendar-day.today {
+    background-color: #f0f0f0;
+  }
+  
+  .calendar-day.selected {
+    background-color: #0066cc;
+    color: #fff;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  
+  h2 {
+    margin: 0;
+  }
