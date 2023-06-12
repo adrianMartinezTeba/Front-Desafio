@@ -4,6 +4,8 @@ import Menu from "../Menu/Menu";
 import { NewsContext } from "../../context/NewContext/NewState";
 import './NewIndividual.scss';
 
+patata
+
 const NewIndividual = () => {
     const { id } = useParams();
     const { news, getNewById } = useContext(NewsContext);
