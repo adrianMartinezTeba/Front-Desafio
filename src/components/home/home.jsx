@@ -18,7 +18,9 @@ const Home = () => {
   },[]);
 
   useEffect(() => {
-    
+    console.log(news);
+    console.log(user);
+    console.log(events);
   }, [news,user,events]);
 
 

@@ -2,25 +2,24 @@ import React, { useEffect, useContext, useState } from 'react';
 import { UserContext } from '../../context/UserContext/UserState';
 
 import './InterestsForm.scss';
+import { TagContext } from '../../context/TagsContext/TagContext';
+import { Await } from 'react-router-dom';
 
 const InterestsForm = () => {
   const { user, getUserLogged } = useContext(UserContext);
+  const {tags,getTags}=useContext(TagContext)
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
 
   useEffect(() => {
-    fetchUserInfo();
-    setPreviousView(null);
+getTags(),
+getUserLogged()
   }, []);
-
-  const fetchUserInfo = async () => {
-    try {
-      await getUserLogged();
-    } catch (error) {
-      console.log('Error al obtener la información del usuario:', error);
-    }
-  };
-
+  useEffect(() => {
+ console.log(user);
+ console.log(tags);
+  }, [user,tags]);
+  
   const handleContinue = () => {
     setPreviousView(currentView);
     setCurrentView(currentView + 1);
@@ -171,6 +170,7 @@ const InterestsForm = () => {
     <>
       <div className="profile-container">
         {renderView()}
+        {/* <p>Hola</p> */}
       </div>
     </>
   );

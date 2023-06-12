@@ -12,10 +12,12 @@ import EventoIndividual from "./components/eventoIndividual/eventoIndividual";
 import CanalDifusion from "./components/canalDifusion/canalDifusion";
 import { CanalDifusionProvider } from "./context/CanalDifusionContext/CanalDifusionState";
 import NewIndividual from "./components/NewIndividual/NewIndividual";
+import { TagProvider } from "./context/TagsContext/TagContext";
 
 function App() {
   return (
     <BrowserRouter>
+    <TagProvider>
       <UserProvider>
         <NewsProvider>
           <EventProvider>
@@ -35,6 +37,7 @@ function App() {
           </EventProvider>
         </NewsProvider>
       </UserProvider>
+      </TagProvider>
     </BrowserRouter>
   );
 }
