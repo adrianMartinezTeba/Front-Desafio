@@ -9,11 +9,14 @@ const EventoIndividual = () => {
 
   useEffect(() => {
     getEventById(id);
-  }, [getEventById, id]);
+  }, []);
+  useEffect(()=>{
+    
+  },[event])
 
   return (
     <div>
-      <Menu /> {/* Renderizar el componente Menu */}
+      <Menu />
       <h1>EventoIndividual</h1>
       {event ? (
         <>

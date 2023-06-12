@@ -1,9 +1,11 @@
 import { createContext, useReducer } from "react";
 import axios from "axios";
 import eventReducer from "./EventReducer";
+import events from "./EventReducer";
 
 const initialState = {
-  event: null,
+  event: [],
+  events:[],
   message: null,
 };
 
@@ -31,6 +33,8 @@ export const EventProvider = ({ children }) => {
         type:"GET_ALLEVENTS",
         payload:res.data
       })
+      console.log(res);
+      console.log(events);
     } catch (error) {
       console.error(error);
     }
