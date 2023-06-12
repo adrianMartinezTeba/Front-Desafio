@@ -9,7 +9,7 @@ const initialState = {
   message: null,
 };
 
-const API_URL = 'http://localhost:8080'; // Reemplaza con la URL correcta de tu backend
+const API_URL = 'http://localhost:8080';
 export const CanalDifusionContext = createContext(initialState);
 
 export const CanalDifusionProvider = ({ children }) => {
