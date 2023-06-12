@@ -10,7 +10,9 @@ const CanalDifusion = () => {
   useEffect(() => {
     getCanalDifusionById(id);
   }, []);
-
+useEffect(()=>{
+console.log(canalDifusion);
+},[canalDifusion])
   return (
     <div>
       <Menu />

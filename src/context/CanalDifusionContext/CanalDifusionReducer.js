@@ -1,11 +1,11 @@
-const canalDifusionReducer = (state, action) => {
+const canalDifusion = (state, action) => {
   switch (action.type) {
-    case "GET_CANAL_DIFUSION":
+    case "GET_CANALDIFUSION":
       return {
         ...state,
         canalDifusion: action.payload,
       };
-    case "GET_ALL_CANAL_DIFUSION":
+    case "GET_ALLCANALDIFUSION":
       return {
         ...state,
         canalDifusiones: action.payload,
@@ -15,4 +15,4 @@ const canalDifusionReducer = (state, action) => {
   }
 };
 
-export default canalDifusionReducer;
+export default canalDifusion;

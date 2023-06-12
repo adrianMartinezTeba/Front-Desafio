@@ -4,8 +4,8 @@ import eventReducer from "./EventReducer";
 import events from "./EventReducer";
 
 const initialState = {
-  event: null,
-  events:null,
+  event: [],
+  events:[],
   message: null,
 };
 

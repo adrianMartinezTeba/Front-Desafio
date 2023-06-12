@@ -9,7 +9,10 @@ const EventoIndividual = () => {
 
   useEffect(() => {
     getEventById(id);
-  }, [getEventById, id]);
+  }, []);
+  useEffect(()=>{
+    
+  },[event])
 
   return (
     <div>

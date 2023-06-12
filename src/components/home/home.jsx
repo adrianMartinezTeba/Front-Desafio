@@ -7,9 +7,9 @@ import { EventContext } from '../../context/EventContext/EventState';
 import { UserContext } from '../../context/UserContext/UserState';
 
 const Home = () => {
-  const [noticias, setNoticias] = useState([]);
-  const [allEvents, setAllEvents] = useState([]);
-  const [userIMG, setUserIMG] = useState('');
+  // const [noticias, setNoticias] = useState([]);
+  // const [allEvents, setAllEvents] = useState([]);
+  // const [userIMG, setUserIMG] = useState('');
   const {getUserLogged,user} = useContext(UserContext)
   const { news, getAllNews } = useContext(NewsContext);
   const {getAllEvents,events} = useContext(EventContext)
@@ -18,20 +18,20 @@ const Home = () => {
     getAllNews();
     getAllEvents();
    getUserLogged();
-   setTimeout(() => {
-     setNoticias(news);
-     setUserIMG(user)
-     setAllEvents(events)
+  //  setTimeout(() => {
+  //    setNoticias(news);
+  //    setUserIMG(user)
+  //    setAllEvents(events)
     
-   }, 500);
+  //  }, 500);
   },[]);
 
   useEffect(() => {
     console.log(news);
     console.log(events);
-    console.log(userIMG);
+    console.log(user);
     
-  }, [news,user]);
+  }, [news,user,events]);
   // const imgPerfil = <img src={userIMG.imageUrl} width={'200px'} />
   // const divAllNoticias = noticias.map((noticia) => (
   //   <div>
