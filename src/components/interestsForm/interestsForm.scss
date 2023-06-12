@@ -1,42 +1,100 @@
-// interestsForm.scss
-
 @import "./src/colors.scss";
 
-.container {
+.title-profile {
+  margin-top: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 0;
+  font-size: 23px;
+  font-weight: bold;
+  color: $texto;
+  text-align: center;
+}
+
+.profile-container {
+  background-color: $white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 15px;
-}
-
-.interest-button {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  background-color: transparent;
-  border: 1px solid $white;
-  color: $white;
-  cursor: pointer;
+  padding-top: 5px;
+  width: 388px;
+  border-radius: 10px;
+  padding-right: 13px;
   
-}
+  .user-details {
+    margin-bottom: 23px;
+    text-align: center;
+    border-bottom: 1px solid $blue;
+  }
 
-.interest-button.selected {
-  background-color: $acento;
-}
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: $neutro;
+  }
 
-.interest-h1 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: $white;
-  margin-bottom: 20px;
+  input[type="text"] {
+    width: 100%;
+    height: 13px;
+    padding: 8px;
+    border: 1.5px solid $neutro;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 20px;
+    color: $neutro;
+  }
+
+  .languages {
+    border-bottom: 1px solid $blue;
+  }
+
+  button {
+    margin-top: 80px;
+    margin-bottom: 55px;
+    margin-left: 50px;
+    padding: 5px 26px;
+    border: none;
+    border-radius: 13px;
+    font-size: 18px;
+    font-weight: bold;
+    color: $white;
+    background-color: $blue;
+    cursor: pointer;
+  }
+
  
 }
 
-.interest-h3 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color: $white;
-  margin-bottom: 10px;
- 
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  width: 100%;
 }
 
-.Env-button{
-    margin-top: 30px;
+.view2 {
+  border-bottom: 1.8px solid $blue;
+}
+
+.label-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.label-input-container label {
+  margin-right: 98px;
+  color: $texto;
+font-size: 16px;
+
+}
+
+.select-input {
+width: 50%;
+height: 28px;
+border-color: $neutro;
+margin: 5px;
 }

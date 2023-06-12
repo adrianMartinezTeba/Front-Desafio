@@ -31,7 +31,7 @@ const Login = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       console.log(user);
-      if (user.firstOnBoard===true) {
+      if (user.firstOnBoard === true) {
         navigate("/onBoarding");
       } else {
         navigate("/");
