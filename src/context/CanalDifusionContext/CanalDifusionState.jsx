@@ -113,20 +113,6 @@ export const CanalDifusionContext = createContext(initialState);
 
 export const CanalDifusionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(canalDifusionReducer, initialState);
-
-
-  const createCanalDifusion = async (canalDifusionData) => {
-    try {
-      const res = await axios.post(`${API_URL}/canalDifusion/create`, canalDifusionData);
-      dispatch({
-        type: 'SET_MESSAGE',
-        payload: res.data.message,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const getAllCanalDifusion = async () => {
     try {
       const res = await axios.get(`${API_URL}/canalDifusion/all`);
