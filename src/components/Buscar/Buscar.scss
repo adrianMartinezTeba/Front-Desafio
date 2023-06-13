@@ -1,11 +1,10 @@
 @import './src/colors.scss';
 
 .body-buscar {
-  background-color: $white;
+  
   display: flex;
   flex-direction: column;
-  padding-left: 40px;
-  padding-right: 40px;
+
   padding-bottom: 20px;
 }
 
@@ -14,15 +13,18 @@
     align-items: center; 
     margin-right: 20px; 
     padding-top: 80px;
+    color: $white;
   }
   
   .Busca img {
     width: 24px;  
-    margin-right: 10px; /* Espacio entre la imagen y el encabezado */
+    margin-right: 10px;
+    background-color: $white; /* Espacio entre la imagen y el encabezado */
   }
   
   .Busca h2 {
     margin: 0; /* Elimina los márgenes por defecto del encabezado */
+    color: $white;
   }
 
 

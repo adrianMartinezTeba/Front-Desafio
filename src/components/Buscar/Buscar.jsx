@@ -32,13 +32,11 @@ const Buscar = () => {
           </Link>
           <h2>Buscar</h2>
         </div>
-        <div className="content">
-          <p>Encuéntralo en un ecosistema único</p>
-        </div>
+      
         <div className="buscar-bar">
           <input
             type="text"
-            placeholder="  Buscar..."
+            placeholder="     Buscar..."
             value={searchTerm}
             onChange={handleChange}
             onKeyPress={handleKeyPress}
