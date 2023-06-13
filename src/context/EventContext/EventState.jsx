@@ -103,6 +103,7 @@ export const EventProvider = ({ children }) => {
             type: "CREATE_EVENT",
             payload: res.data,
         });
+        console.log(res);
     } catch (error) {
         console.error(error);
     }

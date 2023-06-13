@@ -31,7 +31,7 @@ const events = (state, action) => {
     case "CREATE_EVENT":
       return {
         ...state,
-        events: [...state.events, action.payload],
+        event: action.payload,
       };
     default:
       return state;
