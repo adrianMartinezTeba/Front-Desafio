@@ -6,7 +6,7 @@ import "./login.scss";
 import { UserContext } from "../../context/UserContext/UserState";
 
 const Login = () => {
-  const { login, token, user } = useContext(UserContext);
+  const { login, token, user} = useContext(UserContext);
   const [showLogo, setShowLogo] = useState(true);
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -21,26 +21,33 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
+useEffect(()=>{
+const localToken = localStorage.getItem('token')
+if (localToken) {
+  navigate('/')
+}
+},[])
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(loginForm);
 
-
+    if (user.firstOnBoard === true) {
+      navigate("/onBoarding");
+    } else {
+      navigate("/");
+    }
   };
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log(user);
-      if (user.firstOnBoard === true) {
-        navigate("/onBoarding");
-      } else {
-        navigate("/");
-      }
-      // Aquí puedes realizar la lógica adicional que necesites
-    }, 500); // Ajusta el tiempo de espera según tus necesidades
+  useEffect(()=>{
+    console.log(user);
+  },[user,token])
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+      
+  //     // Aquí puedes realizar la lógica adicional que necesites
+  //   }, 2000); // Ajusta el tiempo de espera según tus necesidades
 
-    return () => clearTimeout(timer);
-  }, [token, user]);
+  //   return () => clearTimeout(timer);
+  // }, [token, user]);
 
   //la funcion de logout deberia de limpiar el estado general del token para que esto no te lleve a home 
   // useEffect(() => {
