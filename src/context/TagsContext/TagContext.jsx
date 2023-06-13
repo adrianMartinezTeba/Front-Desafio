@@ -2,7 +2,9 @@ import { createContext, useReducer } from "react";
 import axios from "axios";
 import tags from './TagReducer';
 
-const initialState = {};
+const initialState = {
+    tags:[]
+};
 
 const API_URL = "http://localhost:8080";
 export const TagContext = createContext(initialState);

@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext/UserState';
 import './InterestsForm.scss';
 import { TagContext } from '../../context/TagsContext/TagContext';
+import { EventContext } from '../../context/EventContext/EventState';
 
 
 
 const InterestsForm = () => {
-  const { user, getUserLogged } = useContext(UserContext);
+  const { user, getUserLogged,update } = useContext(UserContext);
   const {tags,getTags}=useContext(TagContext)
+  const {events,getAllEvents} = useContext(EventContext);
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
   
@@ -16,12 +18,15 @@ const InterestsForm = () => {
 
   useEffect(() => {
 getTags(),
-getUserLogged()
+getUserLogged(),
+getAllEvents()
+
   }, []);
   useEffect(() => {
  console.log(user);
  console.log(tags);
-  }, [user,tags]);
+ console.log(events);
+  }, [user,tags,events]);
   
   const handleContinue = () => {
     setPreviousView(currentView);
