@@ -3,8 +3,8 @@ import axios from "axios";
 import users from './UserReducer';
 
 const initialState = {
-  user:'',
-  users:[]
+  user:[] ,
+  users:null
 };
 
 const API_URL = "http://localhost:8080";
