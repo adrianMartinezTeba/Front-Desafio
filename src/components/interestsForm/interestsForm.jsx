@@ -39,8 +39,6 @@ getUserLogged()
       case 1:
         return (
           <>
-         
-          
           <div className="profile-container">
              
                 <div className="info-user">
