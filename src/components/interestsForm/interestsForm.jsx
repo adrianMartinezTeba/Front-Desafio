@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext/UserState';
 import './InterestsForm.scss';
 import { TagContext } from '../../context/TagsContext/TagContext';
-import { EventContext } from '../../context/EventContext/EventState';
 
 
 
@@ -176,7 +175,6 @@ getUserLogged()
     <>
       <div className="profile-container">
         {renderView()}
-        {/* <p>Hola</p> */}
       </div>
     </>
   );
