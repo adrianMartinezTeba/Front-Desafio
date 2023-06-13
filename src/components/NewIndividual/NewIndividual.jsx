@@ -52,4 +52,3 @@ const NewIndividual = () => {
 };
 
 export default NewIndividual;
-
