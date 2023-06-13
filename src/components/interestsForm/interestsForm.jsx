@@ -10,7 +10,6 @@ import { EventContext } from '../../context/EventContext/EventState';
 const InterestsForm = () => {
   const { user, getUserLogged,update } = useContext(UserContext);
   const {tags,getTags}=useContext(TagContext)
-  const {events,getAllEvents} = useContext(EventContext);
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
   
@@ -18,15 +17,13 @@ const InterestsForm = () => {
 
   useEffect(() => {
 getTags(),
-getUserLogged(),
-getAllEvents()
+getUserLogged()
 
   }, []);
   useEffect(() => {
  console.log(user);
  console.log(tags);
- console.log(events);
-  }, [user,tags,events]);
+  }, [user,tags]);
   
   const handleContinue = () => {
     setPreviousView(currentView);

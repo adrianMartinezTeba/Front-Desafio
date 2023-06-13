@@ -1,13 +1,32 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Buscar.scss';
 import flech from '../../assets/icons/arrow-right.png';
 
 import Menu from '../Menu/Menu';
+import { UserContext } from '../../context/UserContext/UserState';
+import { EventContext } from '../../context/EventContext/EventState';
+import { NewsContext } from '../../context/NewContext/NewState';
 
 const Buscar = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const {events,getAllEvents} = useContext(EventContext);
+    const { user,users, getUserLogged,getAllUsers } = useContext(UserContext);
+    const {news,getAllNews} = useContext(NewsContext)
+    useEffect(()=>{
+getAllEvents(),
+getAllUsers(),
+getAllNews(),
+getUserLogged()
 
+    },[])
+    useEffect(()=>{
+ console.log(events);
+ console.log(users);
+ console.log(user);
+ console.log(news);
+      
+          },[events,user,users,news])
   const handleSearch = () => {
     // Lógica para realizar la búsqueda con el término ingresado
     console.log('Realizar búsqueda:', searchTerm);
