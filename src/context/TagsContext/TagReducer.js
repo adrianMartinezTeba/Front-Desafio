@@ -1,14 +1,14 @@
 const tasks = (state, action) => {
     switch (action.type) {
-      case "GET_TAG":
+      case "GET_TASK":
         return {
           ...state,//para que no se borre el estado anterior
-          tag: action.payload,//el payload es la informacion que nos viene de la peticion
+          task: action.payload,//el payload es la informacion que nos viene de la peticion
         };
-      case "GET_TAGS":
+      case "GET_TASKS":
         return {
           ...state,
-          tags: action.payload.tags
+          tasks: action.payload
         }
       default:
         return state;

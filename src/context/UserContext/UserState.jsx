@@ -2,7 +2,9 @@ import { createContext, useReducer } from "react";
 import axios from "axios";
 import users from './UserReducer';
 
-const initialState = {};
+const initialState = {
+  user:[]
+};
 
 const API_URL = "http://localhost:8080";
 export const UserContext = createContext(initialState);
