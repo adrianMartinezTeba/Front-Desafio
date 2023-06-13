@@ -1,15 +1,18 @@
 import React, { useEffect, useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext/UserState';
-
 import './InterestsForm.scss';
 import { TagContext } from '../../context/TagsContext/TagContext';
-import { Await } from 'react-router-dom';
+
+
 
 const InterestsForm = () => {
   const { user, getUserLogged } = useContext(UserContext);
   const {tags,getTags}=useContext(TagContext)
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
+  
+ 
 
   useEffect(() => {
 getTags(),
@@ -23,6 +26,7 @@ getUserLogged()
   const handleContinue = () => {
     setPreviousView(currentView);
     setCurrentView(currentView + 1);
+  
   };
 
   const handleBack = () => {
@@ -157,7 +161,7 @@ getUserLogged()
             
             <div className="button-container">
             <button onClick={handleBack}>Atrás</button>
-            <button onClick={handleContinue}>Continuar</button>
+            <Link to="/home">Terminar</Link>
             </div>
           </div>
         );
