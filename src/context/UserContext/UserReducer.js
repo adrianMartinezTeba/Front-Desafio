@@ -13,10 +13,16 @@ const users = (state, action) => {
                 user: action.payload,
                 message: action.payload.message,
             };
+        case "GET_ALLUSERS":
+            return {
+                ...state,
+                users: action.payload.users,
+                message: action.payload.message,
+            };
         case "UPDATE_USER":
             return {
                 ...state,
-                user: action.payload.token,
+                user: action.payload,
                 message: action.payload.message,
             };
         case "UPDATE_FIRST_ON_BOARD":

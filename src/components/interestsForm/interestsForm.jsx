@@ -7,7 +7,7 @@ import { TagContext } from '../../context/TagsContext/TagContext';
 
 
 const InterestsForm = () => {
-  const { user, getUserLogged } = useContext(UserContext);
+  const { user, getUserLogged,update } = useContext(UserContext);
   const {tags,getTags}=useContext(TagContext)
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
@@ -17,6 +17,7 @@ const InterestsForm = () => {
   useEffect(() => {
 getTags(),
 getUserLogged()
+
   }, []);
   useEffect(() => {
  console.log(user);
@@ -172,7 +173,6 @@ getUserLogged()
     <>
       <div className="profile-container">
         {renderView()}
-        {/* <p>Hola</p> */}
       </div>
     </>
   );

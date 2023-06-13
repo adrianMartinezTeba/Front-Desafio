@@ -2,7 +2,10 @@ import { createContext, useReducer } from "react";
 import axios from "axios";
 import users from './UserReducer';
 
-const initialState = {};
+const initialState = {
+  user:'',
+  users:[]
+};
 
 const API_URL = "http://localhost:8080";
 export const UserContext = createContext(initialState);
@@ -34,6 +37,15 @@ export const UserProvider = ({ children }) => {
     });
     dispatch({
       type: "GET_USER",
+      payload: res.data
+    });
+    console.log(res);
+  };
+  const getAllUsers = async () => {
+    const res = await axios.get(API_URL + '/users/getAll', {
+    });
+    dispatch({
+      type: "GET_ALLUSERS",
       payload: res.data
     });
     console.log(res);
@@ -76,12 +88,14 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         user: state.user,
+        users:state.users,
         token: state.token,
         firstOnBoard:state.firstOnBoard,
         login,
         getUserLogged,
         update,
-        updateFirstOnBoard
+        updateFirstOnBoard,
+        getAllUsers
       }}
     >
       {children}
