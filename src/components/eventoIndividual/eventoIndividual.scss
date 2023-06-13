@@ -1,0 +1,108 @@
+// .container {
+//     position: relative;
+//     width: 100%;
+//     height: 100vh;
+//     overflow: hidden;
+//   }
+  
+//   .evento {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 80%;
+//     max-width: 600px;
+//     background-color: #f1f1f1;
+//     border-radius: 16px;
+//     padding: 20px;
+  
+//     .header {
+//       position: relative; /* Cambio necesario para ajustar la posición de la imagen */
+//       height: 66.66vh; /* Cambio necesario para ajustar la altura */
+//       z-index: 1;
+  
+//       .imagen-fondo {
+//         width: 100%;
+//         height: 100%;
+//         object-fit: cover;
+//         border-radius: 16px;
+//       }
+  
+//       .overlay {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: center;
+//         color: white;
+//       }
+  
+//       .title {
+//         font-size: 24px;
+//         margin-bottom: 10px;
+//       }
+  
+//       .date {
+//         font-size: 16px;
+//         color: #555555;
+//       }
+//     }
+  
+//     .body {
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       transform: translate(-50%, -50%);
+//       width: 80%;
+//       max-width: 600px;
+//       background-color: #f1f1f1;
+//       border-radius: 16px;
+//       padding: 20px;
+//       box-sizing: border-box;
+//       overflow-y: scroll;
+//       color: black;
+//       transition: height 0.3s ease;
+//       z-index: 2;
+  
+//       &.expanded {
+//         height: 66.66vh;
+//       }
+  
+//       .description {
+//         margin-bottom: 10px;
+//       }
+  
+//       .time-info {
+//         display: flex;
+//         flex-direction: column;
+//         margin-bottom: 10px;
+//       }
+  
+//       .start-time,
+//       .end-time {
+//         font-size: small;
+//         margin-bottom: 5px;
+//       }
+  
+//       .location,
+//       .interest {
+//         font-size: small;
+//         margin-bottom: 10px;
+//       }
+//     }
+  
+//     .expand-button {
+//       position: absolute;
+//       top: -5px;
+//       left: 50%;
+//       transform: translateX(-50%);
+//       padding: 5px 20px;
+//       cursor: pointer;
+//       border-radius: 5px;
+//     }
+//   }
+  
