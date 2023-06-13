@@ -16,7 +16,7 @@ const users = (state, action) => {
         case "UPDATE_USER":
             return {
                 ...state,
-                user: action.payload.token,
+                user: action.payload,
                 message: action.payload.message,
             };
         case "UPDATE_FIRST_ON_BOARD":
