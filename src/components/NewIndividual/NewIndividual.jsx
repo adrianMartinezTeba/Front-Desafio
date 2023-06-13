@@ -1,8 +1,10 @@
+
 import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import Menu from "../Menu/Menu";
 import { NewsContext } from "../../context/NewContext/NewState";
 import './NewIndividual.scss';
+import expandir from "../../assets/icons/barra_deslizamiento.png";
 
 const NewIndividual = () => {
     const { id } = useParams();
@@ -32,7 +34,11 @@ const NewIndividual = () => {
                 </div>
                 <div className={`texto ${isTextExpanded ? "expanded" : ""}`}>
                     <div className="expand-button" onClick={() => setIsTextExpanded(!isTextExpanded)}>
-                        {isTextExpanded ? "Minimizar" : "Expandir"}
+                        {isTextExpanded ? (
+                            <img src={expandir} alt="Minimizar" />
+                        ) : (
+                            <img src={expandir} alt="Expandir" />
+                        )}
                     </div>
                     <p>Fecha de publicación: {new Date(news.date).toLocaleDateString()}</p>
                     <p>{news.body}</p>
@@ -46,7 +52,4 @@ const NewIndividual = () => {
 };
 
 export default NewIndividual;
-
-NewIndividual.jsx
-
 
