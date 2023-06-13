@@ -33,7 +33,7 @@ const Menu = () => {
         <div className='right-elements'>
         <Link to="/profile" className="nav-link" >
         <div className="nav-image-container">
-        <img src={user.imageUrl} alt="" />
+        <img src={user.imageUrl} alt="" width={'50px'}/>
         </div>
         </Link>
         <Link to="/vector"  className="nav-link">
