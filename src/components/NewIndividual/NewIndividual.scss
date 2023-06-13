@@ -1,0 +1,68 @@
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.fondo {
+    position: relative;
+    width: 100%;
+    height: 66.66vh;
+    z-index: 1;
+
+    .imagen-fondo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+}
+
+.texto {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 33.33vh;
+    background: #F1F1F1;
+    border-radius: 32px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    color: black;
+    transition: height 0.3s ease;
+    z-index: 2;
+
+    &.expanded {
+        height: 66.66vh;
+    }
+
+    .expand-button {
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px 20px; // Agregamos un padding horizontal para hacerlo más ancho
+        cursor: pointer;
+        background-color: #D3D3D3;
+        border-radius: 5px; // Reducimos el borde redondeado para que parezca más un botón
+    }
+
+    p:first-child {
+        font-size: small;
+        margin-bottom: 10px;
+    }
+}
