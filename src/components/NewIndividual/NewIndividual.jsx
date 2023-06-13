@@ -46,3 +46,7 @@ const NewIndividual = () => {
 };
 
 export default NewIndividual;
+
+NewIndividual.jsx
+
+
