@@ -11,6 +11,7 @@ const InterestsForm = () => {
   const { tags, getTags } = useContext(TagContext)
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
+  const [selectedButtons, setSelectedButtons] = useState([]);
 
 
 
@@ -35,6 +36,16 @@ const InterestsForm = () => {
     setCurrentView(previousView);
   };
 
+  const handleButtonClick = (buttonName) => {
+    if (selectedButtons.includes(buttonName)) {
+      // Si el botón ya está seleccionado, lo deseleccionamos
+      setSelectedButtons(selectedButtons.filter((name) => name !== buttonName));
+    } else {
+      // Si el botón no está seleccionado, lo seleccionamos
+      setSelectedButtons([...selectedButtons, buttonName]);
+    }
+  };
+
   const renderView = () => {
     switch (currentView) {
       case 1:
@@ -55,14 +66,14 @@ const InterestsForm = () => {
 
                     <div className='user-info'>
                       <h2>{user.name}</h2>
-                      <h2>{user.email}</h2>
+                      <h4>{user.email}</h4>
                     </div>
                   </div>
                 )}
-
+<div>
                 <label htmlFor="name">Nombre y apellido</label>
                 <input type="text" id="name" value={user.name} />
-
+                </div>
                 <label htmlFor="Grado">Grado</label>
                 <input type="text" id="Grado" value={user.course} />
 
@@ -95,7 +106,7 @@ const InterestsForm = () => {
                 </div>
                 <div className='user-info'>
                   <h2>{user.name}</h2>
-                  <h2>{user.email}</h2>
+                  <h4>{user.email}</h4>
                 </div>
               </div>
 
@@ -177,41 +188,69 @@ const InterestsForm = () => {
                 </div>
                 <div className="user-info">
                   <h2>{user.name}</h2>
-                  <h2>{user.email}</h2>
+                  <h4>{user.email}</h4>
                 </div>
               </div>
 
               <div className='conocimientos'>
                 <h3 className='view2'>Conocimientos</h3>
-                <button className='movis'>JavaScript</button>
-                <button className='movis'>MongoDB</button>
-                <button className='movis'>SQL</button>
-                <button className='movis'>React</button>
-                <button className='movis'>Node.js</button>
-                <button className='movis'>HTML</button>
+                <button className={`movis ${selectedButtons.includes('JavaScript') ? 'selected' : ''}`} onClick={() => handleButtonClick('JavaScript')}>    JavaScript
+  </button>
+  <button className={`movis ${selectedButtons.includes('MongoDB') ? 'selected' : ''}`} onClick={() => handleButtonClick('MongoDB')}>
+    MongoDB
+  </button>
+  <button className={`movis ${selectedButtons.includes('SQL') ? 'selected' : ''}`} onClick={() => handleButtonClick('SQL')}>
+    SQL
+  </button>
+  <button className={`movis ${selectedButtons.includes('React') ? 'selected' : ''}`} onClick={() => handleButtonClick('React')}>
+    React
+  </button>
+  <button className={`movis ${selectedButtons.includes('Node.js') ? 'selected' : ''}`} onClick={() => handleButtonClick('Node.js')}>
+    Node.js
+  </button>
+  <button className={`movis ${selectedButtons.includes('HTML') ? 'selected' : ''}`} onClick={() => handleButtonClick('HTML')}>
+    HTML
+  </button>
               </div>
 
               <div className='conocimientos'>
                 <h3 className='view2'>Quiero aprender</h3>
-                <button className='movis'>Emprendimiento</button>
-                <button className='movis'>Tecnologia</button>
-                <button className='movis'>Gestión de carteras</button>
+                <button className={`movis ${selectedButtons.includes('Emprendimiento') ? 'selected' : ''}`} onClick={() => handleButtonClick('Emprendimiento')}>
+    Emprendimiento
+  </button>
+  <button className={`movis ${selectedButtons.includes('Tecnologia') ? 'selected' : ''}`} onClick={() => handleButtonClick('Tecnologia')}>
+    Tecnologia
+  </button>
+  <button className={`movis ${selectedButtons.includes('Gestión de carteras') ? 'selected' : ''}`} onClick={() => handleButtonClick('Gestión de carteras')}>
+    Gestión financiera
+  </button>
+  <button className={`movis ${selectedButtons.includes('Marketing') ? 'selected' : ''}`} onClick={() => handleButtonClick('Marketing')}>
+    Marketing
+  </button>
+
               </div>
 
               <div className='conocimientos'>
                 <h3 className='view2'>Ocio</h3>
-                <button className='movis'>Emprendimiento</button>
-                <button className='movis'>Tecnologia</button>
+                <button className={`movis ${selectedButtons.includes('Cine') ? 'selected' : ''}`} onClick={() => handleButtonClick('Cine')}>
+    Cine
+  </button>
+  <button className={`movis ${selectedButtons.includes('Deportes') ? 'selected' : ''}`} onClick={() => handleButtonClick('Deportes')}>
+    Deportes
+  </button>
+  <button className={`movis ${selectedButtons.includes('Literatura') ? 'selected' : ''}`} onClick={() => handleButtonClick('Literatura')}>
+    Literatura
+  </button>
+
+
               </div>
 
-              <div className='conocimientos'>
-                <h3 className='view2'>Intereses</h3>
-              </div>
+              
 
 
               <div className="button-container">
                 <button onClick={handleBack} className='button3'>Atrás</button>
-                <Link to="/home" className='link-home'>Terminar</Link>
+                <Link to="/" className='link-home'>Terminar</Link>
               </div>
             </div>
           </div>

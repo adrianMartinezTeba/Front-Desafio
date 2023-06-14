@@ -13,7 +13,13 @@ const Home = () => {
   const { getUserLogged, user } = useContext(UserContext);
   const { news, getAllNews } = useContext(NewsContext);
   const { getAllEvents, events } = useContext(EventContext);
-  const [filteredNews, setFilteredNews] = useState([]);
+  const [filteredNewsOfi, setFilteredNewsOfi] = useState([]);
+  const [filteredNewsEDEM, setFilteredNewsEDEM] = useState([]);
+  const [filteredNewsLANZADERA, setFilteredNewsLANZADERA] = useState([]);
+  const [filteredEventsLANZADERA, setFilteredEventsLANZADERA] = useState([]);
+  const [filteredEventsEDEM, setFilteredEventsEDEM] = useState([]);
+  const [filteredNewsOTROS,setFilteredNewsOTROS]=useState([])
+  const [filteredEventsOTROS,setFilteredEventsOTROS]=useState([])
   const [selectedNews, setSelectedNews] = useState(null);
 
   useEffect(() => {
@@ -23,8 +29,16 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    const filtered = news.filter(item => item.oficial === true);
-    setFilteredNews(filtered);
+    const newsOficial = news.filter(item => item.oficial === true);
+    setFilteredNewsOfi(newsOficial);
+    const newsEdem = news.filter(item =>item.createdBy === "EDEM");
+    setFilteredNewsEDEM(newsEdem)
+    const eventsEdem = events.filter(item=>item.createdBy === "EDEM")
+    setFilteredEventsEDEM(eventsEdem)
+    const newsLanzadera = news.filter(item=>item.createdBy==="LANZADERA")
+    setFilteredNewsLANZADERA(newsLanzadera)
+    const eventsLanzadera =events.filter(item=>item.createdBy==="LANZADERA")
+    setFilteredEventsLANZADERA(eventsLanzadera)
   }, [user, news, events]);
 
   const handleNewsSelect = (newsId) => {
@@ -45,7 +59,7 @@ const Home = () => {
         <h3>Noticias</h3>
         <div className="divPruebas">
           <Slider {...settings}>
-            {filteredNews.map(item => (
+            {filteredNewsOfi.map(item => (
               <Link to={`/news/${item._id}`} key={item._id}>
                 <div
                   className={`card ${selectedNews === item._id ? 'active' : ''}`}
