@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect } from "react";
 import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDifusionState";
 import Menu from "../Menu/Menu";
@@ -8,7 +9,7 @@ const CanalesDifusion = () => {
   useEffect(() => {
     getAllCanalDifusion();
   }, [getAllCanalDifusion]);
-  
+
   return (
     <div>
       <Menu />
@@ -16,7 +17,7 @@ const CanalesDifusion = () => {
         <h2>Canales de Difusión</h2>
         {canalDifusiones.map((canal) => (
           <div key={canal._id} className="canal-item">
-            <h3>{canal.name}</h3>
+            <h3>{canal.name?.name}</h3> {/* Verificación para evitar errores */}
             <p>{canal.description}</p>
             {/* Mostrar más información del canal si es necesario */}
           </div>
@@ -27,3 +28,5 @@ const CanalesDifusion = () => {
 };
 
 export default CanalesDifusion;
+
+
