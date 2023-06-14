@@ -14,7 +14,7 @@ import { CanalDifusionProvider } from "./context/CanalDifusionContext/CanalDifus
 import NewIndividual from "./components/NewIndividual/NewIndividual";
 import { TagProvider } from "./context/TagsContext/TagContext";
 import Calendar from "./components/calendar/calendar";
-import CreateEvent from "./components/CreateEvent/CreateEvent";
+import CreateEvent from "./components/createEvent/createEvent";
 import CanalesDifusion from "./components/canalesDifusion/canalesDifusion";
 
 function App() {
