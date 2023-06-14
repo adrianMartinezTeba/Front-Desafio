@@ -36,7 +36,7 @@ const Menu = () => {
         <img src={user.imageUrl} alt="" width={'50px'}/>
         </div>
         </Link>
-        <Link to="/vector"  className="nav-link">
+        <Link to="/chats"  className="nav-link">
         <div className="nav-image-container">
         <img src={vector} alt="" />
         </div>
