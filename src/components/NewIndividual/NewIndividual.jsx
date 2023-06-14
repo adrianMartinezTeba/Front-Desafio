@@ -8,7 +8,7 @@ import expandir from "../../assets/icons/barra_deslizamiento.png";
 
 const NewIndividual = () => {
     const { id } = useParams();
-    const { news, getNewById } = useContext(NewsContext);
+    const { newInd, getNewById } = useContext(NewsContext);
     const [isTextExpanded, setIsTextExpanded] = useState(false); 
 
     useEffect(() => {
@@ -16,20 +16,20 @@ const NewIndividual = () => {
     }, []);
 
     useEffect(() => {
-        console.log(news);
-        console.log(news?.tags);
-    }, [news]);
+        console.log(newInd);
+        // console.log(news?.tags);
+    }, [newInd]);
 
     return (
         <div className="container">
             <Menu />
-            {news ? (
+            {newInd ? (
                 <>
                 <div className="fondo">
-                    <img className="imagen-fondo" src={news.imageUrl} alt={news.title} />
+                    <img className="imagen-fondo" src={newInd.imageUrl} alt={newInd.title} />
                     <div className="overlay">
-                        <p>{news.tags ? news.tags.join(", ") : "Sin etiquetas"}</p>
-                        <h2>{news.title}</h2>
+                        <p>{newInd.tags ? newInd.tags.join(", ") : "Sin etiquetas"}</p>
+                        <h2>{newInd.title}</h2>
                     </div>
                 </div>
                 <div className={`texto ${isTextExpanded ? "expanded" : ""}`}>
@@ -40,12 +40,12 @@ const NewIndividual = () => {
                             <img src={expandir} alt="Expandir" />
                         )}
                     </div>
-                    <p>Fecha de publicación: {new Date(news.date).toLocaleDateString()}</p>
-                    <p>{news.body}</p>
+                    <p>Fecha de publicación: {new Date(newInd.date).toLocaleDateString()}</p>
+                    <p>{newInd.body}</p>
                 </div>
                 </>
             ) : (
-                <p>Cargando noticias...</p>
+                <p>Cargando noticia...</p>
             )}
         </div>
     );

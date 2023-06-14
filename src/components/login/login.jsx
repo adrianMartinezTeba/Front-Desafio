@@ -26,9 +26,13 @@ const Login = () => {
     e.preventDefault();
     await login(loginForm);
   };
-
+useEffect(()=>{
+if (localToken==='true') {
+  navigate('/')
+}
+},[])
+  const localToken = localStorage.getItem("token");
   useEffect(() => {
-    const localToken = localStorage.getItem("token");
     if (localToken) {
       // Verificar si se ha realizado el inicio de sesión
       if (token && user) {
