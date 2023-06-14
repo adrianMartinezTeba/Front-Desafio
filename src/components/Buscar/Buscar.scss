@@ -1,41 +1,4 @@
 @import './src/colors.scss';
-
-.body-buscar {
-  
-  display: flex;
-  flex-direction: column;
-
-  padding-bottom: 20px;
-}
-
-.Busca {
-    display: flex;
-    align-items: center; 
-    margin-right: 20px; 
-    padding-top: 80px;
-    color: $white;
-  }
-  
-  .Busca img {
-    width: 24px;  
-    margin-right: 10px;
-    background-color: $white; /* Espacio entre la imagen y el encabezado */
-  }
-  
-  .Busca h2 {
-    margin: 0; /* Elimina los márgenes por defecto del encabezado */
-    color: $white;
-  }
-
-
-
-
-  .buscar-bar{
-    padding-top: 20px;
-  }
-.buscar-in{
-    height: 30px;
-    width: 300px;
-    background-color: $grey;
-    border-radius: 13px;
+.navigation-bar{
+  width: 45vh;
 }
