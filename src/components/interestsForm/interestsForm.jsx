@@ -12,6 +12,7 @@ const InterestsForm = () => {
   const [currentView, setCurrentView] = useState(1);
   const [previousView, setPreviousView] = useState(null);
   
+  
  
 
   useEffect(() => {
@@ -39,42 +40,44 @@ getUserLogged()
       case 1:
         return (
           <>
-          <div className="profile-container">
-             
-                <div className="info-user">
+            <div className="profile-container">
+              <div className="info-user">
                 {currentView === 1 && (
-                <div className="user-details">
-                  <h2>{user.name}</h2>
-                  <h2>{user.email}</h2>
+                  <div className="user-details">
+                    <label htmlFor="profileImage" className="file-input-label">
+                      <div className="file-input-circle"></div>
+                      <input type="file" id="profileImage" className="file-input" />
+                    </label>
+                    <h2>{user.name}</h2>
+                    <h2>{user.email}</h2>
+                  </div>
+                )}
+      
+                <label htmlFor="name">Nombre y apellido</label>
+                <input type="text" id="name" value={user.name} />
+      
+                <label htmlFor="Grado">Grado</label>
+                <input type="text" id="Grado" value={user.course} />
+      
+                <label htmlFor="fecha">Fecha de nacimiento</label>
+                <input type="text" id="fecha" value={user.birth_date} />
+      
+                <label htmlFor="pais">Pais de procedencia</label>
+                <input type="text" id="pais" value={user.country} />
+      
+                <label htmlFor="situacion">Situación laboral</label>
+                <input type="text" id="situacion" value={user.situationLaboral} />
+      
+                <div className="languages-container">
+                  <h3 className="languages">Idiomas</h3>
                 </div>
-              )}
-
-              <label htmlFor="name">Nombre y apellido</label>
-              <input type="text" id="name" value={user.name} />
-
-              <label htmlFor="Grado">Grado</label>
-              <input type="text" id="Grado" value={user.course} />
-
-              <label htmlFor="fecha">Fecha de nacimiento</label>
-              <input type="text" id="fecha" value={user.birth_date} />
-
-              <label htmlFor="pais">Pais de procedencia</label>
-              <input type="text" id="pais" value={user.country} />
-
-              <label htmlFor="situacion">Situación laboral</label>
-              <input type="text" id="situacion" value={user.situationLaboral} />
-              
-              
-              <div className="languages-container">
-              <h2 className="languages">Idiomas</h2>
-           
+      
+                <button onClick={handleContinue} className="button2">Continuar</button>
+              </div>
             </div>
-         
-            <button onClick={handleContinue}>Continuar</button>
-          </div>
-          </div>
           </>
         );
+      
       case 2:
         return (
           <>
@@ -82,8 +85,13 @@ getUserLogged()
         
           <div className="info-user">
              <div className="user-details">
+             <div className="profile-image-container">
+             <img src={user.imageUrl} alt="" width={'59px'}/>
+             </div>
+             <div className='user-info'>
             <h2>{user.name}</h2>
             <h2>{user.email}</h2>
+            </div>
             </div>
             
 <h3 className='view2'>Notificaciones</h3>
@@ -154,13 +162,18 @@ getUserLogged()
         return (
           <div className="info-user">
              <div className="user-details">
+             <div className="profile-image-container">
+             <img src={user.imageUrl} alt="" width={'59px'}/>
+             </div>
+             <div className="user-info">
             <h2>{user.name}</h2>
             <h2>{user.email}</h2>
             </div>
+            </div>
             
             <div className="button-container">
-            <button onClick={handleBack}>Atrás</button>
-            <Link to="/home">Terminar</Link>
+            <button onClick={handleBack} className='button2'>Atrás</button>
+            <Link to="/home" className='link-home'>Terminar</Link>
             </div>
           </div>
         );
