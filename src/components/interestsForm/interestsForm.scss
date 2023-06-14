@@ -1,5 +1,11 @@
 @import "./src/colors.scss";
 
+
+.textoarriba{
+  color: $white;
+  font-size: 21px;
+  padding-left: 10px;
+}
 .principal-container {
   display: flex;
   justify-content: flex-end;
@@ -13,7 +19,7 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  height: 80vh;
+  height: 83vh;
   border-radius: 32px 32px 0px 0px;
   padding-right: 13px;
 }
@@ -86,22 +92,25 @@ input[type="text"] {
   color: $neutro;
 }
 
-button {
-  margin-top: 80px;
-  margin-bottom: 55px;
-  margin-left: 50px;
-  padding: 5px 26px;
-  border: none;
-  border-radius: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  color: $white;
-  background-color: $blue;
 
-  cursor: pointer;
-}
+
+
 .button2 {
   background-color: $blue;
+  margin-top: 70px;
+  color: $white;
+  border-radius: 13px;
+  width: 110px;
+}
+
+.button3{
+  background-color: $blue;
+  color: $white;
+  height: 40px;
+  width: 130px;
+  margin-left: 20px;
+  margin-top: 48px;
+  border-radius: 13px;
 }
 
 .button-container {
@@ -133,7 +142,7 @@ button {
 }
 
 .link-home {
-  margin-top: 80px;
+  margin-top: 50px;
   margin-bottom: 55px;
   margin-left: 50px;
   padding: 5px 26px;
@@ -145,3 +154,16 @@ button {
   background-color: $blue;
   cursor: pointer;
 }
+
+.conocimientos{
+  margin-left: 15px;
+}
+
+.movis{
+  border-color: $texto;
+  };
+
+
+
+
+
