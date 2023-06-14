@@ -40,6 +40,7 @@ const InterestsForm = () => {
       case 1:
         return (
           <>
+          <p className='textoarriba'>Comprueba que tus datos son correctos</p>
 
             <div className="profile-container">
               <div className="info-user">
@@ -84,6 +85,8 @@ const InterestsForm = () => {
 
       case 2:
         return (
+          <>
+             <p className='textoarriba'>Configuración de ajustes y privacidad</p>
           <div className="profile-container">
             <div className="info-user">
               <div className="user-details">
@@ -115,13 +118,17 @@ const InterestsForm = () => {
               </div>
 
               <div className="label-input-container">
-                <label htmlFor="noticias">Noticias</label>
-                <select id="noticias" className="select-input">
-                  <option value="edem">EDEM</option>
-                  <option value="contactos">Contactos</option>
-                  <option value="todos">Todos</option>
-                </select>
-              </div>
+  <label htmlFor="noticias">Noticias</label>
+ 
+  <select id="noticias" className="select-input">
+    <option value="edem">EDEM</option>
+    <option value="contactos">Contactos</option>
+    <option value="todos">Todos</option>
+  </select>
+
+
+</div>
+
 
 
 
@@ -156,9 +163,12 @@ const InterestsForm = () => {
             </div>
 
           </div>
+          </>
         );
       case 3:
         return (
+          <>
+             <p className='textoarriba'>Por último, conozcamos un poco mas de ti</p>
           <div className="profile-container">
             <div className="info-user">
               <div className="user-details">
@@ -171,27 +181,41 @@ const InterestsForm = () => {
                 </div>
               </div>
 
-              <div>
+              <div className='conocimientos'>
                 <h3 className='view2'>Conocimientos</h3>
+                <button className='movis'>JavaScript</button>
+                <button className='movis'>MongoDB</button>
+                <button className='movis'>SQL</button>
+                <button className='movis'>React</button>
+                <button className='movis'>Node.js</button>
+                <button className='movis'>HTML</button>
+              </div>
 
-              </div>
-              <div>
+              <div className='conocimientos'>
                 <h3 className='view2'>Quiero aprender</h3>
+                <button className='movis'>Emprendimiento</button>
+                <button className='movis'>Tecnologia</button>
+                <button className='movis'>Gestión de carteras</button>
               </div>
-              <div>
+
+              <div className='conocimientos'>
                 <h3 className='view2'>Ocio</h3>
+                <button className='movis'>Emprendimiento</button>
+                <button className='movis'>Tecnologia</button>
               </div>
-              <div>
+
+              <div className='conocimientos'>
                 <h3 className='view2'>Intereses</h3>
               </div>
 
 
               <div className="button-container">
-                <button onClick={handleBack} className='button2'>Atrás</button>
+                <button onClick={handleBack} className='button3'>Atrás</button>
                 <Link to="/home" className='link-home'>Terminar</Link>
               </div>
             </div>
           </div>
+          </>
         );
       default:
         return null;

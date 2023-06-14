@@ -3,7 +3,8 @@ import axios from "axios";
 import news from './NewReducer'
 
 const initialState ={
-news:'',
+news:[],
+newInd:''
 };
   
   const API_URL = "http://localhost:8080";
@@ -31,6 +32,7 @@ news:'',
         <NewsContext.Provider
           value={{
             news:state.news,
+            newInd:state.newInd,
             getAllNews,
             getNewById
           }}
