@@ -14,7 +14,7 @@ export const CanalDifusionProvider = ({ children }) => {
   const [state, dispatch] = useReducer(canalDifusionReducer, initialState);
   const getAllCanalDifusion = async () => {
     try {
-      const res = await axios.get(`${API_URL}/canalDifusion/all`);
+      const res = await axios.get(`${API_URL}/canalDifusiones/all`);
       dispatch({
         type: 'GET_ALLCANALDIFUSION',
         payload: res.data,
