@@ -6,7 +6,7 @@ import "./login.scss";
 import { UserContext } from "../../context/UserContext/UserState";
 
 const Login = () => {
-  const { login, token, user} = useContext(UserContext);
+  const { login, token, user } = useContext(UserContext);
   const [showLogo, setShowLogo] = useState(true);
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -21,42 +21,26 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
-useEffect(()=>{
-const localToken = localStorage.getItem('token')
-if (localToken) {
-  navigate('/')
-}
-},[])
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(loginForm);
-
-    if (user.firstOnBoard === true) {
-      navigate("/onBoarding");
-    } else {
-      navigate("/");
-    }
   };
-  useEffect(()=>{
-    console.log(user);
-  },[user,token])
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-      
-  //     // Aquí puedes realizar la lógica adicional que necesites
-  //   }, 2000); // Ajusta el tiempo de espera según tus necesidades
 
-  //   return () => clearTimeout(timer);
-  // }, [token, user]);
+  useEffect(() => {
+    const localToken = localStorage.getItem("token");
+    if (localToken) {
+      // Verificar si se ha realizado el inicio de sesión
+      if (token && user) {
+        if (user.firstOnBoard === true) {
+          navigate("/onBoarding");
+        } else {
+          navigate("/");
+        }
+      }
+    }
+  }, [token, user, navigate]);
 
-  //la funcion de logout deberia de limpiar el estado general del token para que esto no te lleve a home 
-  // useEffect(() => {
-  //   const tokenStorage = JSON.parse(localStorage.getItem('token'))
-  //   setTokenStorage(tokenStorage);
-  //   if (tokenStorage === 'token') {
-  //     navigate("/");
-  //   }
-  // }, []);
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowLogo(false);
@@ -88,8 +72,7 @@ if (localToken) {
 
       {!showLogo && (
         <div
-          className={`login-container ${showLogo ? "logo-visible" : "form-visible"
-            }`}
+          className={`login-container ${showLogo ? "logo-visible" : "form-visible"}`}
         >
           <img src={logo} alt="Logo de EDEM" className="logo" />
           <form className="login-form" onSubmit={handleSubmit}>
