@@ -170,7 +170,22 @@ getUserLogged()
             <h2>{user.email}</h2>
             </div>
             </div>
+
+            <div>
+            <h3 className='view2'>Conocimientos</h3>
             
+            </div>
+            <div>
+            <h3 className='view2'>Quiero aprender</h3>
+            </div>
+            <div>
+            <h3 className='view2'>Ocio</h3>
+            </div>
+            <div>
+            <h3 className='view2'>Intereses</h3>
+            </div>
+
+
             <div className="button-container">
             <button onClick={handleBack} className='button2'>Atrás</button>
             <Link to="/home" className='link-home'>Terminar</Link>
