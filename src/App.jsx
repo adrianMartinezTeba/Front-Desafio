@@ -15,6 +15,7 @@ import NewIndividual from "./components/NewIndividual/NewIndividual";
 import { TagProvider } from "./context/TagsContext/TagContext";
 import Calendar from "./components/calendar/calendar";
 import CreateEvent from "./components/CreateEvent/CreateEvent";
+import CanalesDifusion from "./components/canalesDifusion/canalesDifusion";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                   <Route path="/news/:id" element={<NewIndividual />} />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/createEvent" element={<CreateEvent />} />
+                  <Route path="/CanalesDifusion" element={<CanalesDifusion />} />
                 </Routes>
               </CanalDifusionProvider>
             </EventProvider>
