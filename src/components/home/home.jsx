@@ -119,39 +119,41 @@ const Home = () => {
         <button onClick={handleShowFilteredLANZADERA}>LANZADERA</button>
         <button onClick={handleShowFilteredOTROS}>OTROS</button>
         <hr />
-        {showFilteredEDEM && (
-          <div>
-            <h4>EDEM</h4>
-            {allEDEM.map(item => (
-              <div key={item._id}>
-                <h5>{item.title}</h5>
-                <p>{item.body}</p>
-              </div>
-            ))}
-          </div>
-        )}
-        {showFilteredLANZADERA && (
-          <div>
-            <h4>LANZADERA</h4>
-            {allLANZADERA.map(item => (
-              <div key={item._id}>
-                <h5>{item.title}</h5>
-                <p>{item.body}</p>
-              </div>
-            ))}
-          </div>
-        )}
-        {showFilteredOTROS && (
-          <div>
-            <h4>OTROS</h4>
-            {allOTROS.map(item => (
-              <div key={item._id}>
-                <h5>{item.title}</h5>
-                <p>{item.body}</p>
-              </div>
-            ))}
-          </div>
-        )}
+        <div className='all-container'>
+          {showFilteredEDEM && (
+            <div>
+              <h4>EDEM</h4>
+              {allEDEM.map(item => (
+                <div key={item._id}>
+                  <h5>{item.title}</h5>
+                  <p>{item.body}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {showFilteredLANZADERA && (
+            <div>
+              <h4>LANZADERA</h4>
+              {allLANZADERA.map(item => (
+                <div key={item._id}>
+                  <h5>{item.title}</h5>
+                  <p>{item.body}</p>
+                </div>
+              ))}
+            </div>
+          )}
+          {showFilteredOTROS && (
+            <div>
+              <h4>OTROS</h4>
+              {allOTROS.map(item => (
+                <div key={item._id}>
+                  <h5>{item.title}</h5>
+                  <p>{item.body}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <Menu />
     </div>
