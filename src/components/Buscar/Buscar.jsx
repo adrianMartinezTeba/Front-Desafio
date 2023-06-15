@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import './Buscar.scss';
-import flech from '../../assets/icons/arrow-right.png';
+
 
 import Menu from '../Menu/Menu';
 import { UserContext } from '../../context/UserContext/UserState';
@@ -43,16 +43,9 @@ getUserLogged()
   };
 
   return (
-    <div className="body-buscar">
+   
       <div className="navigation-bar">
-        <div className="Busca">
-          <Link to="/home">
-            <img src={flech} alt="" />
-          </Link>
-          <h2>Buscar</h2>
-        </div>
       
-        <div className="buscar-bar">
           <input
             type="text"
             placeholder="     Buscar..."
@@ -61,9 +54,6 @@ getUserLogged()
             onKeyPress={handleKeyPress}
             className="buscar-in"
           />
-        </div>
-      </div>
-
       <Menu/>
     </div>
   );
