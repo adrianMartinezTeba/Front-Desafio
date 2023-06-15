@@ -3,7 +3,6 @@ import './calendar.scss';
 import Menu from '../Menu/Menu';
 import { EventContext } from '../../context/EventContext/EventState';
 
-
 const Calendar = () => {
   const { events, getAllEvents } = useContext(EventContext);
   const [date, setDate] = useState(new Date());
@@ -86,17 +85,15 @@ const Calendar = () => {
         {renderCalendar()}
       </div>
       {selectedDateObj && (
-        <div>
+        <div className="event-list-container">
           <h3 className='calendar-h3'>Eventos del {selectedDateObj.toLocaleDateString()}</h3>
           {getEventsByDay().length > 0 ? (
             <ul>
-                
               {getEventsByDay().map(event => (
-                 
                 <li key={event._id}>
                   <div className='resultados'>
-                  <h4>{event.name}</h4>
-                  <p>{event.description}</p>
+                    <h4>{event.name}</h4>
+                    <p>{event.description}</p>
                   </div>
                 </li>
               ))}

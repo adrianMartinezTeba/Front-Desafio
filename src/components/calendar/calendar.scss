@@ -1,58 +1,63 @@
-.calendari{
+.calendari {
   height: 700px;
 }
+
 .calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
 
-  .title-calendar{
-    color: #fff;
-  }
-  
-  .calendar-day {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #fff;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px;
+.title-calendar {
+  color: #fff;
+}
 
-  }
-  
-  .calendar-day.disabled {
-    color: #000000;
-    cursor: not-allowed;
-  }
-  
-  .calendar-day.today {
-    background-color: #f0f0f0;
-  }
-  
-  .calendar-day.selected {
-    background-color: #0066cc;
-    color: #fff;
-  }
-  
-  button {
-    margin-right: 10px;
-  }
-  
-  h2 {
-    margin: 0;
-  }
+.calendar-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px;
+}
 
-  .resultados{
-    border-radius: 10px;
-    padding:5px;
-    background-color: #DFDFDF;
-  }
+.calendar-day.disabled {
+  color: #000000;
+  cursor: not-allowed;
+}
 
-  .calendar-h3{
-    color: #fff;
-  }
+.calendar-day.today {
+  background-color: #f0f0f0;
+}
+
+.calendar-day.selected {
+  background-color: #0066cc;
+  color: #fff;
+}
+
+button {
+  margin-right: 10px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.resultados {
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #dfdfdf;
+}
+
+.calendar-h3 {
+  color: #fff;
+}
+
+.event-list-container {
+  max-height: 300px;
+  overflow: auto;
+}
