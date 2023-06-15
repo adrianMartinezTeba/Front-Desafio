@@ -68,7 +68,7 @@ const CanalesDifusion = () => {
     <div>
       <Menu />
       <div>
-        <h2>Canales de Difusión</h2>
+        <h2>Canales</h2>
 
         <div className="subgrupo-item">
           <h4 onClick={toggleCanalesMarina}>Canales Marina de Empresas</h4>
