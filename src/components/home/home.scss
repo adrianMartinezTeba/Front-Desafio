@@ -1,90 +1,96 @@
 .home-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: #fff;
-padding-left: 100px;
-}
-
-.noticias-container {
-  width: 80%;
-  max-width: 600px;
-}
-
-.noticias-container h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.divPruebas {
-  display: flex;
-  flex-direction: column;
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 100%;
-  color: #fff;
-}
-
-.card-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-body {
-  font-size: 0.9rem;
-}
-
-.active {
-  border: 2px solid #f00;
-}
-
-.recientes-container {
-  width: 80%;
-  max-width: 600px;
-  margin-top: 2rem;
-  text-align: center;
-}
-
-.recientes-container p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.recientes-container button {
-  margin-right: 0.5rem;
-}
-
-.recientes-container hr {
-  margin-top: 1rem;
-  border: 0;
-  border-top: 1px solid #ccc;
-  width: 100%;
-}
-
-.menu {
-  /* Estilos del menú */
-}
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
   
+  position: absolute;
+  width: 400px;
+  height: 705px;
+  left: 0px;
+  top: 85px;
+    background: #F1F1F1;
+border-radius: 32px 32px 0px 0px;
+  }
+  
+  .noticias-container {
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .noticias-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .divPruebas {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    color: #fff;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-body {
+    font-size: 0.9rem;
+  }
+  
+  .active {
+    border: 2px solid #f00;
+  }
+  
+  .recientes-container {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  .recientes-container p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .recientes-container button {
+    margin-right: 0.5rem;
+  }
+  
+  .recientes-container hr {
+    margin-top: 1rem;
+    border: 0;
+    border-top: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .all-container {
+    max-height: 200px; 
+    overflow-y: auto;  
+  }
