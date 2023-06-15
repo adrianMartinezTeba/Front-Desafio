@@ -1,9 +1,15 @@
-
+.calendari{
+  height: 700px;
+}
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 10px;
     margin-top: 10px;
+  }
+
+  .title-calendar{
+    color: #fff;
   }
   
   .calendar-day {
@@ -11,9 +17,12 @@
     justify-content: center;
     align-items: center;
     height: 40px;
-    border: 1px solid #050e1d;
+    border-radius: 10px;
+    border: 1px solid #fff;
     cursor: pointer;
     color: #fff;
+    padding: 10px;
+
   }
   
   .calendar-day.disabled {
@@ -36,4 +45,14 @@
   
   h2 {
     margin: 0;
+  }
+
+  .resultados{
+    border-radius: 10px;
+    padding:5px;
+    background-color: #DFDFDF;
+  }
+
+  .calendar-h3{
+    color: #fff;
   }

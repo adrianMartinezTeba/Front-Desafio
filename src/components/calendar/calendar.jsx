@@ -78,22 +78,26 @@ const Calendar = () => {
   };
 
   return (
-    <div>
+    <div className='calendari'>
       <button onClick={handlePrevMonth}>Prev</button>
-      <h2>{date.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
+      <h2 className='title-calendar'>{date.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
       <button onClick={handleNextMonth}>Next</button>
       <div className="calendar">
         {renderCalendar()}
       </div>
       {selectedDateObj && (
         <div>
-          <h3>Eventos del {selectedDateObj.toLocaleDateString()}</h3>
+          <h3 className='calendar-h3'>Eventos del {selectedDateObj.toLocaleDateString()}</h3>
           {getEventsByDay().length > 0 ? (
             <ul>
+                
               {getEventsByDay().map(event => (
+                 
                 <li key={event._id}>
+                  <div className='resultados'>
                   <h4>{event.name}</h4>
                   <p>{event.description}</p>
+                  </div>
                 </li>
               ))}
             </ul>
