@@ -10,6 +10,11 @@ const canalDifusion = (state, action) => {
         ...state,
         canalDifusiones: action.payload,
       };
+      case "UPDATE_CANAL":
+        return{
+          ...state,
+          canalDifusion:action.payload
+        };
     default:
       return state;
   }

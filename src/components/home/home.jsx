@@ -15,12 +15,18 @@ const Home = () => {
   const { getAllEvents, events } = useContext(EventContext);
   const [filteredNewsOfi, setFilteredNewsOfi] = useState([]);
   const [filteredNewsEDEM, setFilteredNewsEDEM] = useState([]);
+  const [filteredEventsEDEM, setFilteredEventsEDEM] = useState([]);
+  const [allEDEM, setAllEDEM] = useState([]);
   const [filteredNewsLANZADERA, setFilteredNewsLANZADERA] = useState([]);
   const [filteredEventsLANZADERA, setFilteredEventsLANZADERA] = useState([]);
-  const [filteredEventsEDEM, setFilteredEventsEDEM] = useState([]);
-  const [filteredNewsOTROS,setFilteredNewsOTROS]=useState([])
-  const [filteredEventsOTROS,setFilteredEventsOTROS]=useState([])
+  const [allLANZADERA, setAllLANZADERA] = useState([]);
+  const [filteredNewsOTROS, setFilteredNewsOTROS] = useState([]);
+  const [filteredEventsOTROS, setFilteredEventsOTROS] = useState([]);
+  const [allOTROS, setAllOTROS] = useState([]);
   const [selectedNews, setSelectedNews] = useState(null);
+  const [showFilteredEDEM, setShowFilteredEDEM] = useState(true);
+  const [showFilteredLANZADERA, setShowFilteredLANZADERA] = useState(false);
+  const [showFilteredOTROS, setShowFilteredOTROS] = useState(false);
 
   useEffect(() => {
     getAllNews();
@@ -31,14 +37,27 @@ const Home = () => {
   useEffect(() => {
     const newsOficial = news.filter(item => item.oficial === true);
     setFilteredNewsOfi(newsOficial);
-    const newsEdem = news.filter(item =>item.createdBy === "EDEM");
-    setFilteredNewsEDEM(newsEdem)
-    const eventsEdem = events.filter(item=>item.createdBy === "EDEM")
-    setFilteredEventsEDEM(eventsEdem)
-    const newsLanzadera = news.filter(item=>item.createdBy==="LANZADERA")
-    setFilteredNewsLANZADERA(newsLanzadera)
-    const eventsLanzadera =events.filter(item=>item.createdBy==="LANZADERA")
-    setFilteredEventsLANZADERA(eventsLanzadera)
+    const newsEdem = news.filter(item => item.createdBy === "EDEM");
+    setFilteredNewsEDEM(newsEdem);
+    const eventsEdem = events.filter(item => item.createdBy === "EDEM");
+    setFilteredEventsEDEM(eventsEdem);
+    const newsLanzadera = news.filter(item => item.createdBy === "LANZADERA");
+    setFilteredNewsLANZADERA(newsLanzadera);
+    const eventsLanzadera = events.filter(item => item.createdBy === "LANZADERA");
+    setFilteredEventsLANZADERA(eventsLanzadera);
+    const newsOtros = news.filter(item => item.createdBy === "OTROS");
+    setFilteredNewsOTROS(newsOtros);
+    const eventsOtros = events.filter(item => item.createdBy === "OTROS");
+    setFilteredEventsOTROS(eventsOtros);
+    const eventsNewsEDEM = eventsEdem.concat(newsEdem);
+    setAllEDEM(eventsNewsEDEM);
+    console.log(allEDEM);
+    const eventsNewsLANZADERA = eventsLanzadera.concat(newsLanzadera);
+    setAllLANZADERA(eventsNewsLANZADERA);
+    console.log(allLANZADERA);
+    const eventsNewOTROS = eventsOtros.concat(newsOtros);
+    setAllOTROS(eventsNewOTROS);
+    console.log(allOTROS);
   }, [user, news, events]);
 
   const handleNewsSelect = (newsId) => {
@@ -51,6 +70,24 @@ const Home = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1
+  };
+
+  const handleShowFilteredEDEM = () => {
+    setShowFilteredEDEM(true);
+    setShowFilteredLANZADERA(false);
+    setShowFilteredOTROS(false);
+  };
+
+  const handleShowFilteredLANZADERA = () => {
+    setShowFilteredLANZADERA(true);
+    setShowFilteredEDEM(false);
+    setShowFilteredOTROS(false);
+  };
+
+  const handleShowFilteredOTROS = () => {
+    setShowFilteredOTROS(true);
+    setShowFilteredEDEM(false);
+    setShowFilteredLANZADERA(false);
   };
 
   return (
@@ -78,10 +115,43 @@ const Home = () => {
       </div>
       <div className="recientes-container">
         <p>Recientes</p>
-        <button>EDEM</button>
-        <button>LANZADERA</button>
-        <button>TODO</button>
+        <button onClick={handleShowFilteredEDEM}>EDEM</button>
+        <button onClick={handleShowFilteredLANZADERA}>LANZADERA</button>
+        <button onClick={handleShowFilteredOTROS}>OTROS</button>
         <hr />
+        {showFilteredEDEM && (
+          <div>
+            <h4>EDEM</h4>
+            {allEDEM.map(item => (
+              <div key={item._id}>
+                <h5>{item.title}</h5>
+                <p>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {showFilteredLANZADERA && (
+          <div>
+            <h4>LANZADERA</h4>
+            {allLANZADERA.map(item => (
+              <div key={item._id}>
+                <h5>{item.title}</h5>
+                <p>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        )}
+        {showFilteredOTROS && (
+          <div>
+            <h4>OTROS</h4>
+            {allOTROS.map(item => (
+              <div key={item._id}>
+                <h5>{item.title}</h5>
+                <p>{item.body}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <Menu />
     </div>

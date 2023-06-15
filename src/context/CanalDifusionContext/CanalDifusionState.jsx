@@ -39,10 +39,10 @@ export const CanalDifusionProvider = ({ children }) => {
 
   const updateCanalDifusion = async (canalDifusionId, canalDifusionData) => {
     try {
-      const res = await axios.put(`${API_URL}/canalDifusion/update/${canalDifusionId}`, canalDifusionData);
+      const res = await axios.put(`${API_URL}/canalDifusiones/update/${canalDifusionId}`, canalDifusionData);
       dispatch({
-        type: 'SET_MESSAGE',
-        payload: res.data.message,
+        type: 'UPDATE_CANAL',
+        payload: res.data,
       });
     } catch (error) {
       console.error(error);
