@@ -1,2 +1,35 @@
+@import "./src/colors.scss";
 
-  
+.canales-difusion-container{
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    border-radius: 32px 32px 0px 0px;
+    padding-right: 13px;
+    margin-top: 130px;
+    padding-top: 70px;
+    overflow: auto;
+}
+.canales-difusion-subgrupo-item{
+    font-size: 20px;
+    color: $texto;
+}
+
+.canalets{
+    color: $texto;
+}
+
+.no-pierdas{
+    color: $neutro;
+    font-size: 20px;
+    height: 25px;
+ margin-bottom: 20px;
+}
+
+  .resultados{
+    color: $texto;
+    border-bottom: 1px solid $blue;
+  }
