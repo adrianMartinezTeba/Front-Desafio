@@ -110,10 +110,10 @@ const CreateEvent = () => {
     await createEvent(formData);
     // Establecer el mensaje de confirmación
     setConfirmationMessage("¡Evento creado con éxito!");
-    setTimeout(() => {
-      setConfirmationMessage(""); // borrar el mensaje después de 3 segundos
-      navigate("/"); // navegar a la página principal después de la creación del evento
-    }, 3000);
+    // setTimeout(() => {
+    //   setConfirmationMessage(""); // borrar el mensaje después de 3 segundos
+    //   navigate("/"); // navegar a la página principal después de la creación del evento
+    // }, 3000);
   };
   
   return (
