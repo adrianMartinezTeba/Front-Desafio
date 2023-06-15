@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './calendar.scss';
 import Menu from '../Menu/Menu';
+import { EventContext } from '../../context/EventContext/EventState';
+
 
 const Calendar = () => {
+  const { events, getAllEvents } = useContext(EventContext);
   const [date, setDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  useEffect(() => {
+    getAllEvents();
+  }, []);
+
+  const selectedDateObj = selectedDate ? new Date(date.getFullYear(), date.getMonth(), selectedDate) : null;
 
   const handlePrevMonth = () => {
     setDate(prevDate => {
       const prevMonth = prevDate.getMonth() - 1;
       const newDate = new Date(prevDate.getFullYear(), prevMonth, 1);
+      setSelectedDate(null);
       return newDate;
     });
   };
@@ -17,6 +28,7 @@ const Calendar = () => {
     setDate(prevDate => {
       const nextMonth = prevDate.getMonth() + 1;
       const newDate = new Date(prevDate.getFullYear(), nextMonth, 1);
+      setSelectedDate(null);
       return newDate;
     });
   };
@@ -39,13 +51,30 @@ const Calendar = () => {
     for (let i = 1; i <= daysInMonth; i++) {
       const day = i;
       calendar.push(
-        <div className="calendar-day" key={day}>
+        <div
+          className={`calendar-day ${selectedDate === day ? 'selected' : ''}`}
+          key={day}
+          onClick={() => setSelectedDate(day)}
+        >
           {day}
         </div>
       );
     }
 
     return calendar;
+  };
+
+  const getEventsByDay = () => {
+    if (selectedDateObj) {
+      const formattedDate = selectedDateObj.toLocaleDateString(); // Formatear la fecha seleccionada
+      const filteredEvents = events.filter(event => {
+        const eventDate = new Date(event.startDate);
+        const formattedEventDate = eventDate.toLocaleDateString(); // Formatear la fecha del evento
+        return formattedEventDate === formattedDate;
+      });
+      return filteredEvents;
+    }
+    return [];
   };
 
   return (
@@ -56,7 +85,24 @@ const Calendar = () => {
       <div className="calendar">
         {renderCalendar()}
       </div>
-      <Menu/>
+      {selectedDateObj && (
+        <div>
+          <h3>Eventos del {selectedDateObj.toLocaleDateString()}</h3>
+          {getEventsByDay().length > 0 ? (
+            <ul>
+              {getEventsByDay().map(event => (
+                <li key={event._id}>
+                  <h4>{event.name}</h4>
+                  <p>{event.description}</p>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No hay eventos programados para este día.</p>
+          )}
+        </div>
+      )}
+      <Menu />
     </div>
   );
 };

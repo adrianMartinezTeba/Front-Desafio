@@ -35,11 +35,11 @@ const CanalDifusion = () => {
   return (
     <div>
       <Menu />
-      <h1>Canal de Difusión Individual</h1>
+      <h2>Canal</h2>
       {canalDifusion ? (
         <>
           <h2>{canalDifusion.name}</h2>
-          <p>{canalDifusion.description}</p>
+          {/* <p>{canalDifusion.description}</p> */}
           <h3>Eventos:</h3>
           <div style={{ maxHeight: "300px", overflowY: "auto" }}>
             {filteredEvents.map((event) => (
