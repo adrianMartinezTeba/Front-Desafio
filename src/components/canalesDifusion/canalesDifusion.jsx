@@ -3,9 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDifusionState";
 import Menu from "../Menu/Menu";
+import "./CanalesDifusion.scss";
 
 const Scrollable = ({ children }) => {
-  return <div style={{ maxHeight: "300px", overflowY: "auto" }}>{children}</div>;
+  return <div className="scrollable">{children}</div>;
 };
 
 const CanalesDifusion = () => {
@@ -16,25 +17,31 @@ const CanalesDifusion = () => {
   const [filteredCanalesLANZADERA, setFilteredCanalesLANZADERA] = useState([]);
   const [filteredCanalesMarina, setFilteredCanalesMarina] = useState([]);
   const [filteredCanalOTROS, setFilteredCanalOTROS] = useState([]);
+  const [isTextoMaximizado, setIsTextoMaximizado] = useState(false);
 
   useEffect(() => {
     getAllCanalDifusion();
   }, [getAllCanalDifusion]);
 
   useEffect(() => {
-    const canalDifusionOficial = canalDifusiones.filter(item => item.oficial === true);
+    const canalDifusionOficial = canalDifusiones.filter((item) => item.oficial === true);
     setFilteredCanalOfi(canalDifusionOficial);
 
-    const canalesEDEM = canalDifusiones.filter(item => item.createdBy === "EDEM");
+    const canalesEDEM = canalDifusiones.filter((item) => item.createdBy === "EDEM");
     setFilteredCanalesEDEM(canalesEDEM);
 
-    const canalesLANZADERA = canalDifusiones.filter(item => item.createdBy === "LANZADERA");
+    const canalesLANZADERA = canalDifusiones.filter((item) => item.createdBy === "LANZADERA");
     setFilteredCanalesLANZADERA(canalesLANZADERA);
 
-    const canalesMarina = canalDifusiones.filter(item => item.createdBy === "Marina de Empresas");
+    const canalesMarina = canalDifusiones.filter((item) => item.createdBy === "Marina de Empresas");
     setFilteredCanalesMarina(canalesMarina);
 
-    const canalOTROS = canalDifusiones.filter(item => item.createdBy !== "EDEM" && item.createdBy !== "LANZADERA" && item.createdBy !== "Marina de Empresas");
+    const canalOTROS = canalDifusiones.filter(
+      (item) =>
+        item.createdBy !== "EDEM" &&
+        item.createdBy !== "LANZADERA" &&
+        item.createdBy !== "Marina de Empresas"
+    );
     setFilteredCanalOTROS(canalOTROS);
   }, [canalDifusiones]);
 
@@ -64,17 +71,21 @@ const CanalesDifusion = () => {
     setIsOtrosOpen(!isOtrosOpen);
   };
 
-  return (
-    <div>
-      <Menu />
-      <div>
-        <h2>Canales de Difusión</h2>
+  const toggleTextoMaximizado = () => {
+    setIsTextoMaximizado(!isTextoMaximizado);
+  };
 
-        <div className="subgrupo-item">
+  return (
+    <div className="canales-difusion-container">
+      <Menu />
+      <div className={`canales-container ${isTextoMaximizado ? "maximizado" : ""}`}>
+        <h2>No te pierdas nada</h2>
+
+        <div className="canales-difusion-subgrupo-item">
           <h4 onClick={toggleCanalesMarina}>Canales Marina de Empresas</h4>
           {isCanalesMarinaOpen && (
             <Scrollable>
-              {filteredCanalesMarina.map(canal => (
+              {filteredCanalesMarina.map((canal) => (
                 <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
                   <h4>{canal.name}</h4>
                 </Link>
@@ -83,11 +94,11 @@ const CanalesDifusion = () => {
           )}
         </div>
 
-        <div className="subgrupo-item">
+        <div className="canales-difusion-subgrupo-item">
           <h4 onClick={toggleCanalesEDEM}>Canales EDEM</h4>
           {isCanalesEDEMOpen && (
             <Scrollable>
-              {filteredCanalesEDEM.map(canal => (
+              {filteredCanalesEDEM.map((canal) => (
                 <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
                   <h4>{canal.name}</h4>
                 </Link>
@@ -96,11 +107,11 @@ const CanalesDifusion = () => {
           )}
         </div>
 
-        <div className="subgrupo-item">
+        <div className="canales-difusion-subgrupo-item">
           <h4 onClick={toggleCanalesLANZADERA}>Canales LANZADERA</h4>
           {isCanalesLANZADERAOpen && (
             <Scrollable>
-              {filteredCanalesLANZADERA.map(canal => (
+              {filteredCanalesLANZADERA.map((canal) => (
                 <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
                   <h4>{canal.name}</h4>
                 </Link>
@@ -109,17 +120,22 @@ const CanalesDifusion = () => {
           )}
         </div>
 
-        <div className="grupo-item">
+        <div
+          className={`canales-difusion-grupo-item ${isOtrosOpen && isTextoMaximizado ? "expanded" : ""}`}
+          onClick={toggleTextoMaximizado}
+        >
           <h3 onClick={toggleOtros}>Otros Canales</h3>
-          {isOtrosOpen && (
-            <Scrollable>
-              {filteredCanalOTROS.map(canal => (
-                <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
-                  <h4>{canal.name}</h4>
-                </Link>
-              ))}
-            </Scrollable>
-          )}
+          <div className="scrollable">
+            {isOtrosOpen && (
+              <>
+                {filteredCanalOTROS.map((canal) => (
+                  <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
+                    <h4>{canal.name}</h4>
+                  </Link>
+                ))}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -127,3 +143,4 @@ const CanalesDifusion = () => {
 };
 
 export default CanalesDifusion;
+
