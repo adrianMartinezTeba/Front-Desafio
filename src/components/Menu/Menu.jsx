@@ -31,11 +31,7 @@ const Menu = () => {
             </div>
        
         <div className='right-elements'>
-        <Link to="/profile" className="nav-link" >
-        <div className="nav-image-container">
-        <img src={user.imageUrl} alt="" width={'50px'}/>
-        </div>
-        </Link>
+     
         <Link to="/canalesDifusion"  className="nav-link">
         <div className="nav-image-container">
         <img src={vector} alt="" />
@@ -44,6 +40,11 @@ const Menu = () => {
         <Link to="/calendar" className="nav-link" >
         <div className="nav-image-container">
         <img src={calendar} alt="" />
+        </div>
+        </Link>
+        <Link to="/profile" className="nav-link" >
+        <div className="nav-image-container">
+        <img src={user.imageUrl} alt="" width={'50px'}/>
         </div>
         </Link>
         </div>
