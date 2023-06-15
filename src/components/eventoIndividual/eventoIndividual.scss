@@ -1,7 +1,7 @@
 
 .container {
     position: relative;
-    width: 100%;
+    width: 100vh;
     height: 100vh;
     overflow: hidden;
 }
@@ -13,7 +13,7 @@
     z-index: 1;
 
     .imagen-fondo {
-        width: 100%;
+        width: 100vh;
         height: 100%;
         object-fit: cover;
     }
@@ -22,7 +22,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vh;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -32,10 +32,11 @@
     }
 }
 
+
 .texto {
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 100vh;
     height: 33.33vh;
     background: #F1F1F1;
     border-radius: 32px;
@@ -58,6 +59,7 @@
         padding: 5px 20px; // Agregamos un padding horizontal para hacerlo más ancho
         cursor: pointer;
         border-radius: 5px; // Reducimos el borde redondeado para que parezca más un botón
+        
     }
 
     p:first-child {

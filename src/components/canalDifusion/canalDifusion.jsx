@@ -6,6 +6,7 @@ import { EventContext } from "../../context/EventContext/EventState";
 import Menu from "../Menu/Menu";
 import mathplus from "../../assets/icons/math-plus.png";
 import './CanalDifusion.scss';
+import barra from '../../assets/image/Rectangle 1.png'
 
 
 const CanalDifusion = () => {
@@ -37,29 +38,34 @@ const CanalDifusion = () => {
   }, [canalDifusion, events]);
 
   return (
+    <>
+   
     <div className="prim">
+    <img src={barra} alt="" className="event-barra"/>
       <Menu />
       <button className="botoncete" onClick={() => navigate("/createEvent")}><img className="fotito" src={mathplus} alt="math-plush"/></button>
-      <h2>Canal</h2>
+    
       {canalDifusion ? (
         <>
+        
           <h2 className="hdos">{canalDifusion.name}</h2>
           {/* <p>{canalDifusion.description}</p> */}
           <h3 className="htres">Eventos:</h3>
-          <div style={{ maxHeight: "300px", overflowY: "auto" }} className="prim">
+          
             {filteredEvents.map((event) => (
               <div key={event._id} className="prim">
                 <Link to={`/event/${event._id}`}>
-                  <h4 className="hcuatro">{event.name}</h4>
+                  <h4 className="custom-box custom-box--block">{event.name}</h4>
                 </Link>
               </div>
             ))}
-          </div>
-        </>
+          
+          </>
       ) : (
         <p className="pe">Cargando canal de difusión...</p>
       )}
     </div>
+    </>
   );
 };
 

@@ -3,6 +3,12 @@ import React, { useState, useContext } from "react";
 import { EventContext } from "../../context/EventContext/EventState";
 import { useNavigate } from 'react-router-dom'; 
 
+import './createEvent.scss'
+
+import barra from '../../assets/image/Rectangle 1.png'
+import Menu from "../Menu/Menu";
+
+
 const CreateEvent = () => {
   const { createEvent, events } = useContext(EventContext);
   const [formData, setFormData] = useState({
@@ -37,27 +43,35 @@ const CreateEvent = () => {
   };
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <>
+   <div className="event-container">
+    <div className="barrita"> 
+    <img src={barra} alt=""/>
+    </div>
+      <p className="crea-event">Crea un evento</p>
+      <form onSubmit={handleSubmit}className="form-event">
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Nombre del evento"
+          placeholder="  Nombre del evento"
+          className="event-in"
         />
         <textarea
           name="description"
           value={formData.description}
           onChange={handleChange}
-          placeholder="Descripción"
+          placeholder=" Descripción..."
+          className="event-inp"
         />
         <input
           type="text"
           name="imageUrl"
           value={formData.imageUrl}
           onChange={handleChange}
-          placeholder="URL de la imagen"
+          placeholder=" URL de la imagen"
+          className="event-in"
         />
         <input
           type="date"
@@ -65,6 +79,7 @@ const CreateEvent = () => {
           value={formData.startDate}
           onChange={handleChange}
           placeholder="Fecha de inicio"
+          className="event-time"
         />
         <input
           type="date"
@@ -72,19 +87,23 @@ const CreateEvent = () => {
           value={formData.endDate}
           onChange={handleChange}
           placeholder="Fecha de finalización"
+          className="event-time"
         />
         <input
           type="text"
           name="tags"
           value={formData.tags}
           onChange={handleChange}
-          placeholder="Intereses"
+          placeholder=" Intereses"
+          className="event-in"
         />
-        <button type="submit">Crear Evento</button>
+        <button type="submit" className="fin-event">Crear Evento</button>
       </form>
       {/* Mostrar el mensaje de confirmación si existe */}
       {confirmationMessage && <p>{confirmationMessage}</p>}
+      <Menu />
     </div>
+    </>
   );
 };
 

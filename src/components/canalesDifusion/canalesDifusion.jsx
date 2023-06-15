@@ -6,6 +6,7 @@ import Menu from "../Menu/Menu";
 import "./CanalesDifusion.scss";
 
 
+
 const Scrollable = ({ children }) => {
   return <div className="scrollable">{children}</div>;
 };
@@ -78,6 +79,7 @@ const CanalesDifusion = () => {
 
   return (
     <div className="canales-difusion-container">
+       
       <Menu />
       <div className={`canales-container ${isTextoMaximizado ? "maximizado" : ""}`}>
         <h1 className="canalets">Canales</h1>
