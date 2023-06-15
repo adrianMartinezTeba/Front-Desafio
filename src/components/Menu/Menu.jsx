@@ -5,7 +5,7 @@ import './Menu.scss'
 
 
 import home from '../../assets/icons/home.png'
-import search from '../../assets/icons/search.png'
+import user2 from '../../assets/icons/user.png'
 import vector from '../../assets/icons/vector.png'
 import calendar from '../../assets/icons/calendar-dates.png'
 import { UserContext } from '../../context/UserContext/UserState';
@@ -31,11 +31,6 @@ const Menu = () => {
             </div>
        
         <div className='right-elements'>
-        <Link to="/profile" className="nav-link" >
-        <div className="nav-image-container">
-        <img src={user.imageUrl} alt="" width={'50px'}/>
-        </div>
-        </Link>
         <Link to="/canalesDifusion"  className="nav-link">
         <div className="nav-image-container">
         <img src={vector} alt="" />
@@ -44,6 +39,11 @@ const Menu = () => {
         <Link to="/calendar" className="nav-link" >
         <div className="nav-image-container">
         <img src={calendar} alt="" />
+        </div>
+        </Link>
+        <Link to="/profile" className="nav-link" >
+        <div className="nav-image-container">
+        <img className='icon-img' src={user2} alt="" width={'50px'}/>
         </div>
         </Link>
         </div>
