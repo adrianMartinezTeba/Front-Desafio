@@ -73,10 +73,10 @@ const Profile = () => {
         <input type="text" id="situacion" value={situationLaboral} onChange={handleSituationLaboralChange} />
       <br />
         <label htmlFor="password" className='repit'>Cambiar contraseña</label>
-        <input type="password" id="pais"  onChange={handleCountryChange} />
+        <input type="password" id="pais"  onChange={handleCountryChange}  className='p1'/>
 
         <label htmlFor="password" className='repit'>Repite contraseña</label>
-        <input type="password" id="pais"  onChange={handleCountryChange} />
+        <input type="password" id="pais"  onChange={handleCountryChange} className='p1' />
 
         <button className='save-profile'>Guardar</button>
       </div>
