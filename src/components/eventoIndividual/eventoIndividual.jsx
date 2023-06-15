@@ -34,7 +34,7 @@ const EventoIndividual = () => {
                 <img src={expandir} alt="Expandir" />
               )}
             </div>
-            <p>Fecha de publicación: {new Date(event.date).toLocaleDateString()}</p>
+            <p className="negrit">Fecha de publicación: {new Date(event.date).toLocaleDateString()}</p>
             <p>{event.description}</p>
           </div>
         </>

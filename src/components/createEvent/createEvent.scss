@@ -1,0 +1,56 @@
+@import "./src/colors.scss";
+
+.event-container{
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 76vh;
+    border-radius: 32px 32px 0px 0px;
+    padding-top: 3px;
+}
+
+.barrita{
+    margin-top: 0;
+    
+}
+.crea-event{
+    font-size: 23px;
+    color: $texto;
+    font-weight: bold;
+}
+
+.form-event{
+    padding: 30px;
+}
+
+.event-in{
+    margin-bottom: 23px;
+}
+
+.event-inp{
+    margin-left: 20px;
+    margin-bottom: 13px;
+    height: 130px;
+    width: 293px;
+    border: 1.5px solid $neutro;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.event-time{
+    margin-left: 20px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    width: 125px;
+    height: 30px;
+}
+
+
+.fin-event{
+    background-color: $blue;
+    color: $white;
+    margin-top: 23px;
+    margin-left: 100px;
+}

@@ -5,6 +5,8 @@ import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDi
 import Menu from "../Menu/Menu";
 import "./CanalesDifusion.scss";
 
+
+
 const Scrollable = ({ children }) => {
   return <div className="scrollable">{children}</div>;
 };
@@ -77,17 +79,19 @@ const CanalesDifusion = () => {
 
   return (
     <div className="canales-difusion-container">
+       
       <Menu />
       <div className={`canales-container ${isTextoMaximizado ? "maximizado" : ""}`}>
-        <h2>No te pierdas nada</h2>
+        <h1 className="canalets">Canales</h1>
+        <h2 className="no-pierdas">No te pierdas nada</h2>
 
         <div className="canales-difusion-subgrupo-item">
-          <h4 onClick={toggleCanalesMarina}>Canales Marina de Empresas</h4>
+          <h4 onClick={toggleCanalesMarina}># Canales Marina de Empresas</h4>
           {isCanalesMarinaOpen && (
             <Scrollable>
               {filteredCanalesMarina.map((canal) => (
                 <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
-                  <h4>{canal.name}</h4>
+                  <h4 className="resultados">-{canal.name}</h4>
                 </Link>
               ))}
             </Scrollable>
@@ -95,12 +99,12 @@ const CanalesDifusion = () => {
         </div>
 
         <div className="canales-difusion-subgrupo-item">
-          <h4 onClick={toggleCanalesEDEM}>Canales EDEM</h4>
+          <h4 onClick={toggleCanalesEDEM}># Canales EDEM</h4>
           {isCanalesEDEMOpen && (
             <Scrollable>
               {filteredCanalesEDEM.map((canal) => (
                 <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
-                  <h4>{canal.name}</h4>
+                  <h4 className="resultados">-{canal.name}</h4>
                 </Link>
               ))}
             </Scrollable>
@@ -108,12 +112,12 @@ const CanalesDifusion = () => {
         </div>
 
         <div className="canales-difusion-subgrupo-item">
-          <h4 onClick={toggleCanalesLANZADERA}>Canales LANZADERA</h4>
+          <h4 onClick={toggleCanalesLANZADERA}># Canales LANZADERA</h4>
           {isCanalesLANZADERAOpen && (
             <Scrollable>
               {filteredCanalesLANZADERA.map((canal) => (
                 <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
-                  <h4>{canal.name}</h4>
+                  <h4 className="resultados">-{canal.name}</h4>
                 </Link>
               ))}
             </Scrollable>
@@ -124,17 +128,18 @@ const CanalesDifusion = () => {
           className={`canales-difusion-grupo-item ${isOtrosOpen && isTextoMaximizado ? "expanded" : ""}`}
           onClick={toggleTextoMaximizado}
         >
-          <h3 onClick={toggleOtros}>Otros Canales</h3>
+          <h3 onClick={toggleOtros}># Otros Canales</h3>
           <div className="scrollable">
             {isOtrosOpen && (
               <>
                 {filteredCanalOTROS.map((canal) => (
                   <Link to={`/canal/${canal._id}`} className="canal-link" key={canal._id}>
-                    <h4>{canal.name}</h4>
+                    <h4 className="resultados">-{canal.name}</h4>
                   </Link>
                 ))}
               </>
             )}
+              <h1 className="canalets">Chats</h1>
           </div>
         </div>
       </div>

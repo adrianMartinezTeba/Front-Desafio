@@ -59,7 +59,7 @@ const Profile = () => {
     
       <div className='form-profile'>
         <h2 className='configuracion'>Configuración</h2>
-        
+        <img src={user.imageUrl} alt="" width={'49px'} className='profile-img'/>
         <label htmlFor="name">Nombre y apellido</label>
         <input type="text" id="name" value={name} onChange={handleNameChange} />
 

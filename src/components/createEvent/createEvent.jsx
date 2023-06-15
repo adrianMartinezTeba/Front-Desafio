@@ -1,87 +1,13 @@
 
-// import React, { useState, useContext } from "react";
-// import { EventContext } from "../../context/EventContext/EventState";
-// import { useNavigate } from 'react-router-dom'; // usar useNavigate en lugar de useHistory
-
-// const CreateEvent = () => {
-//   const { createEvent } = useContext(EventContext);
-//   const [formData, setFormData] = useState({
-//     name: "",
-//     description: "",
-//     startDate: "",
-//     endDate: "",
-//     tags: []
-//   });
-  
-//   const navigate = useNavigate(); // usar useNavigate para navegación
-  
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-  
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     await createEvent(formData);
-//     navigate("/"); // navegar a la página principal después de la creación del evento
-//   };
-//   return (
-//     <div>
-//       <form onSubmit={handleSubmit}>
-//         <input
-//           type="text"
-//           name="name"
-//           value={formData.name}
-//           onChange={handleChange}
-//           placeholder="Nombre del evento"
-//         />
-//         <textarea
-//           name="description"
-//           value={formData.description}
-//           onChange={handleChange}
-//           placeholder="Descripción"
-//         />
-//         <input
-//           type="text"
-//           name="imageUrl"
-//           value={formData.imageUrl}
-//           onChange={handleChange}
-//           placeholder="URL de la imagen"
-//         />
-//         <input
-//           type="date"
-//           name="startDate"
-//           value={formData.startDate}
-//           onChange={handleChange}
-//           placeholder="Fecha de inicio"
-//         />
-//         <input
-//           type="date"
-//           name="endDate"
-//           value={formData.endDate}
-//           onChange={handleChange}
-//           placeholder="Fecha de finalización"
-//         />
-//         <input
-//           type="text"
-//           name="tags"
-//           value={formData.tags}
-//           onChange={handleChange}
-//           placeholder="Intereses"
-//         />
-//         <button type="submit">Crear Evento</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default CreateEvent;
-
 import React, { useState, useContext } from "react";
 import { EventContext } from "../../context/EventContext/EventState";
 import { useNavigate } from 'react-router-dom'; 
+
+import './createEvent.scss'
+
+import barra from '../../assets/image/Rectangle 1.png'
+import Menu from "../Menu/Menu";
+
 
 const CreateEvent = () => {
   const { createEvent, events } = useContext(EventContext);
@@ -117,27 +43,35 @@ const CreateEvent = () => {
   };
   
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <>
+   <div className="event-container">
+    <div className="barrita"> 
+    <img src={barra} alt=""/>
+    </div>
+      <p className="crea-event">Crea un evento</p>
+      <form onSubmit={handleSubmit}className="form-event">
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Nombre del evento"
+          placeholder="  Nombre del evento"
+          className="event-in"
         />
         <textarea
           name="description"
           value={formData.description}
           onChange={handleChange}
-          placeholder="Descripción"
+          placeholder=" Descripción..."
+          className="event-inp"
         />
         <input
           type="text"
           name="imageUrl"
           value={formData.imageUrl}
           onChange={handleChange}
-          placeholder="URL de la imagen"
+          placeholder=" URL de la imagen"
+          className="event-in"
         />
         <input
           type="date"
@@ -145,6 +79,7 @@ const CreateEvent = () => {
           value={formData.startDate}
           onChange={handleChange}
           placeholder="Fecha de inicio"
+          className="event-time"
         />
         <input
           type="date"
@@ -152,21 +87,27 @@ const CreateEvent = () => {
           value={formData.endDate}
           onChange={handleChange}
           placeholder="Fecha de finalización"
+          className="event-time"
         />
         <input
           type="text"
           name="tags"
           value={formData.tags}
           onChange={handleChange}
-          placeholder="Intereses"
+          placeholder=" Intereses"
+          className="event-in"
         />
-        <button type="submit">Crear Evento</button>
+        <button type="submit" className="fin-event">Crear Evento</button>
       </form>
       {/* Mostrar el mensaje de confirmación si existe */}
       {confirmationMessage && <p>{confirmationMessage}</p>}
+      <Menu />
     </div>
+    </>
   );
 };
 
 export default CreateEvent;
+
+
 
