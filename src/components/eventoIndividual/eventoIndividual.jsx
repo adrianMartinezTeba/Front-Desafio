@@ -2,7 +2,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { EventContext } from "../../context/EventContext/EventState";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu/menu";
 import "./eventoIndividual.scss";
 import expandir from "../../assets/icons/barra_deslizamiento.png";
 

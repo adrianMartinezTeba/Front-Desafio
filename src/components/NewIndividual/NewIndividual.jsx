@@ -16,7 +16,6 @@ const NewIndividual = () => {
   }, []);
 
   useEffect(() => {
-    console.log(newInd);
   }, [newInd]);
 
   return (

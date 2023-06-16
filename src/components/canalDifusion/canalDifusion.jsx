@@ -33,8 +33,6 @@ const CanalDifusion = () => {
   }, [canalDifusion, events]);
 
   useEffect(() => {
-    console.log(canalDifusion);
-    console.log(events);
   }, [canalDifusion, events]);
 
   return (

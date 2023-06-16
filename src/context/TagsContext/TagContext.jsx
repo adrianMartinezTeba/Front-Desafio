@@ -17,7 +17,6 @@ export const TagProvider = ({ children }) => {
       type: "GET_TAGS",
       payload: res.data
     });
-    console.log(res);
   };
 
   return (

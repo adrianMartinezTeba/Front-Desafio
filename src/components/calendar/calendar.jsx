@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import './calendar.scss';
 import Menu from '../Menu/menu';
 import { EventContext } from '../../context/EventContext/EventState';
+import { Link } from 'react-router-dom';
 
 const Calendar = () => {
   const { events, getAllEvents } = useContext(EventContext);
@@ -78,9 +79,11 @@ const Calendar = () => {
 
   return (
     <div className='calendari'>
-      <button onClick={handlePrevMonth}>Prev</button>
-      <h2 className='title-calendar'>{date.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
-      <button onClick={handleNextMonth}>Next</button>
+      <div className='intr-cal'>
+        <button onClick={handlePrevMonth}>Prev</button>
+        <h2 className='title-calendar'>{date.toLocaleString('default', { month: 'long', year: 'numeric' })}</h2>
+        <button onClick={handleNextMonth}>Next</button>
+      </div>
       <div className="calendar">
         {renderCalendar()}
       </div>
@@ -91,10 +94,12 @@ const Calendar = () => {
             <ul>
               {getEventsByDay().map(event => (
                 <li key={event._id}>
+                 
                   <div className='resultados'>
                     <h4>{event.name}</h4>
                     <p>{event.description}</p>
                   </div>
+                 
                 </li>
               ))}
             </ul>

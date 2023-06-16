@@ -31,7 +31,6 @@ export const CanalDifusionProvider = ({ children }) => {
         type: 'GET_CANALDIFUSION',
         payload: res.data,
       });
-      console.log(res);
     } catch (error) {
       console.error(error);
     }

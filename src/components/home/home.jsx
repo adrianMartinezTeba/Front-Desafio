@@ -51,13 +51,10 @@ const Home = () => {
     setFilteredEventsOTROS(eventsOtros);
     const eventsNewsEDEM = eventsEdem.concat(newsEdem);
     setAllEDEM(eventsNewsEDEM);
-    console.log(allEDEM);
     const eventsNewsLANZADERA = eventsLanzadera.concat(newsLanzadera);
     setAllLANZADERA(eventsNewsLANZADERA);
-    console.log(allLANZADERA);
     const eventsNewOTROS = eventsOtros.concat(newsOtros);
     setAllOTROS(eventsNewOTROS);
-    console.log(allOTROS);
   }, [user, news, events]);
 
   const handleNewsSelect = (newsId) => {

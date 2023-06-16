@@ -18,7 +18,6 @@ newInd:''
           type: "GET_NEWS",
           payload: res.data,
         });
-        console.log(res);
       };
       const getNewById = async (id) => {
         const res = await axios.get(API_URL + "/news/byId/"+id);
@@ -26,7 +25,6 @@ newInd:''
           type: "GET_NEWBYID",
           payload: res.data,
         });
-        console.log(res);
       };
       return (
         <NewsContext.Provider

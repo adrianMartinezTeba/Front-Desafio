@@ -39,7 +39,6 @@ export const UserProvider = ({ children }) => {
       type: "GET_USER",
       payload: res.data
     });
-    console.log(res);
   };
   const getAllUsers = async () => {
     const res = await axios.get(API_URL + '/users/getAll', {
@@ -48,7 +47,6 @@ export const UserProvider = ({ children }) => {
       type: "GET_ALLUSERS",
       payload: res.data
     });
-    console.log(res);
   };
 
   const update = async (userForm) => {
@@ -77,8 +75,6 @@ export const UserProvider = ({ children }) => {
         type: "UPDATE_FIRST_ON_BOARD",
         payload: firstOnBoard
       });
-
-      console.log(res.data);
     } catch (error) {
       console.error(error);
     }
