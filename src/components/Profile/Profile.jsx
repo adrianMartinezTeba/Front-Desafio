@@ -1,8 +1,9 @@
+
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../context/UserContext/UserState';
 import Menu from '../menu/menu';
 
-import './Profile.scss';
+import './profile.scss';
 
 const Profile = () => {
   const { user, updateUser } = useContext(UserContext);
