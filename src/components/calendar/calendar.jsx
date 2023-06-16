@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './calendar.scss';
-import Menu from '../Menu/Menu';
+import Menu from '../Menu/menu';
 import { EventContext } from '../../context/EventContext/EventState';
 
 const Calendar = () => {

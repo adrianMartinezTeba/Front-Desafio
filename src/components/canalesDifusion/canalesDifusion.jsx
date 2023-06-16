@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDifusionState";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu/menu";
 import "./CanalesDifusion.scss";
 
 

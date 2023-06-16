@@ -3,9 +3,9 @@ import React, { useEffect, useContext, useState } from "react";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDifusionState";
 import { EventContext } from "../../context/EventContext/EventState";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu/menu";
 import mathplus from "../../assets/icons/math-plus.png";
-import './CanalDifusion.scss';
+import './canalDifusion.scss';
 import barra from '../../assets/image/Rectangle 1.png'
 
 
