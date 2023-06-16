@@ -1,7 +1,7 @@
 
 import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-import Menu from "../Menu/menu";
+import Menu from "../menu/menu";
 import { NewsContext } from "../../context/NewContext/NewState";
 import "./newIndividual.scss";
 import expandir from "../../assets/icons/barra_deslizamiento.png";

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '../../context/UserContext/UserState';
-import Menu from '../Menu/menu';
+import Menu from '../menu/menu';
 
 import './Profile.scss';
 

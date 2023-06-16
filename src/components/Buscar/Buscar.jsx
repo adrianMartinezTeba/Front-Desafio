@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 
-import './Buscar.scss';
+import './buscar.scss';
 
 
-import Menu from '../Menu/menu';
+import Menu from '../menu/menu';
 import { UserContext } from '../../context/UserContext/UserState';
 import { EventContext } from '../../context/EventContext/EventState';
 import { NewsContext } from '../../context/NewContext/NewState';

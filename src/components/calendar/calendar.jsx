@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import './calendar.scss';
-import Menu from '../Menu/menu';
+import Menu from '../menu/menu';
 import { EventContext } from '../../context/EventContext/EventState';
-import { Link } from 'react-router-dom';
 
 const Calendar = () => {
   const { events, getAllEvents } = useContext(EventContext);

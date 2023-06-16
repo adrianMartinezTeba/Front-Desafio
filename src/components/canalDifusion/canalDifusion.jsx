@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from "react";
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDifusionState";
 import { EventContext } from "../../context/EventContext/EventState";
-import Menu from "../Menu/menu";
+import Menu from "../menu/menu";
 import mathplus from "../../assets/icons/math-plus.png";
 import './canalDifusion.scss';
 import barra from '../../assets/image/Rectangle 1.png'
