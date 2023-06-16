@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import './createEvent.scss'
 
 import barra from '../../assets/image/Rectangle 1.png'
-import Menu from "../Menu/Menu";
+import Menu from "../Menu/menu";
 
 
 const CreateEvent = () => {

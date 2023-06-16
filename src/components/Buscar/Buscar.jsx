@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Buscar.scss';
 
 
-import Menu from '../Menu/Menu';
+import Menu from '../Menu/menu';
 import { UserContext } from '../../context/UserContext/UserState';
 import { EventContext } from '../../context/EventContext/EventState';
 import { NewsContext } from '../../context/NewContext/NewState';
@@ -21,12 +21,8 @@ getUserLogged()
 
     },[])
     useEffect(()=>{
- console.log(events);
- console.log(users);
- console.log(user);
- console.log(news);
-      
-          },[events,user,users,news])
+
+    },[events,user,users,news])
   const handleSearch = () => {
     // Lógica para realizar la búsqueda con el término ingresado
     console.log('Realizar búsqueda:', searchTerm);

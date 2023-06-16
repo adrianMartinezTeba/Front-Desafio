@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './home.scss';
-import Menu from '../Menu/Menu';
+import Menu from '../Menu/menu';
 import { NewsContext } from '../../context/NewContext/NewState';
 import { EventContext } from '../../context/EventContext/EventState';
 import { UserContext } from '../../context/UserContext/UserState';
