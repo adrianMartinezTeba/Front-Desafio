@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDifusionState";
 import Menu from "../Menu/Menu";
-import "./CanalesDifusion.scss";
+import "./canalesDifusion.scss";
 
 
 
@@ -22,7 +22,7 @@ const CanalesDifusion = () => {
 
   useEffect(() => {
     getAllCanalDifusion();
-  }, [getAllCanalDifusion]);
+  }, []);
 
   useEffect(() => {
     const canalDifusionOficial = canalDifusiones.filter((item) => item.oficial === true);

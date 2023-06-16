@@ -5,7 +5,7 @@ import { CanalDifusionContext } from "../../context/CanalDifusionContext/CanalDi
 import { EventContext } from "../../context/EventContext/EventState";
 import Menu from "../Menu/Menu";
 import mathplus from "../../assets/icons/math-plus.png";
-import './CanalDifusion.scss';
+import './canalDifusion.scss';
 import barra from '../../assets/image/Rectangle 1.png'
 
 
@@ -17,8 +17,8 @@ const CanalDifusion = () => {
   const [filteredEvents, setFilteredEvents] = useState([]);
 
   useEffect(() => {
-    getCanalDifusionById(id);
     getAllEvents();
+    getCanalDifusionById(id);
   }, []);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext/UserState';
-import './InterestsForm.scss';
+import './interestsForm.scss';
 import { TagContext } from '../../context/TagsContext/TagContext';
 
 
